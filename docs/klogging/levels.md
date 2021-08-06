@@ -1,5 +1,5 @@
 ---
-title: Logging severity levels
+sidebar_position: 3
 ---
 
 # Logging severity levels

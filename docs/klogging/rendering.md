@@ -1,5 +1,5 @@
 ---
-title: Rendering
+sidebar_position: 5
 ---
 
 # Rendering

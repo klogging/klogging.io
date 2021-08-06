@@ -27,7 +27,7 @@ module.exports = {
                     type: 'doc',
                     docId: 'intro',
                     position: 'left',
-                    label: 'Tutorial',
+                    label: 'Docs',
                 },
                 {
                     to: '/blog',
@@ -35,7 +35,7 @@ module.exports = {
                     position: 'left'
                 },
                 {
-                    href: 'https://github.com/facebook/docusaurus',
+                    href: 'https://github.com/klogging/klogging.io',
                     label: 'GitHub',
                     position: 'right',
                 },

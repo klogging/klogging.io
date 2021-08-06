@@ -1,8 +1,8 @@
 ---
-title: Klogging configuration
+sidebar_position: 1
 ---
 
-# Klogging configuration
+# Configuration
 
 ## Quick start with DSL
 
@@ -27,14 +27,14 @@ loggingConfiguration {
 
 This configuration:
 
-* First declares a [sink](sinks) called `stdout` that [renders](rendering) each
-  [log event](log-events) into a [simple string format](simple-string-format) and
-  [dispatches](dispatching) it to the standard output stream. Sinks should be
+* First declares a [sink](sinks.md) called `stdout` that [renders](rendering.md) each
+  [log event](log-events.md) into a [simple string format](simple-string-format.md) and
+  [dispatches](dispatching.md) it to the standard output stream. Sinks should be
   configured before they are used.
 
 * Next declares a logging configuration that applies to loggers with names starting
-  with `com.example`. In this configuration, all log events at [severity level](levels)
-  or greater are [dispatched](dispatching) to the `stdout` sink.
+  with `com.example`. In this configuration, all log events at [severity level](levels.md)
+  or greater are [dispatched](dispatching.md) to the `stdout` sink.
 
 ### A more complex example
 
@@ -87,3 +87,9 @@ Three logging configurations, which together mean:
   sink `seq`.
 
 * Loggers with names starting with `audit` dispatch all log events to sink `auditing`.
+
+## Configuration with files
+
+### YAML
+
+*Watch this space…*
