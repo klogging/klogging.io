@@ -29,12 +29,12 @@ Levels are specified when logging, either in the `Klogger#log` function, for exa
     logger.log(Level.INFO, "User {user} logged in", user)
 ```
 
-or using convenience functions:
+or using convenience functions, like this:
 
-* `logger.trace`
-* `logger.debug`
-* `logger.info`
-* `logger.warn`
-* `logger.error`
-* `logger.fatal`
+* `logger.trace("User {user} logged in", user)`
+* `logger.debug("User {user} logged in", user)`
+* `logger.info("User {user} logged in", user)`
+* `logger.warn("User {user} logged in", user)`
+* `logger.error("User {user} logged in", user)`
+* `logger.fatal("User {user} logged in", user)`
 
