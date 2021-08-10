@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
     title: 'Klogging',
-    tagline: 'Kotlin library for structured logging with coroutines',
+    tagline: 'Easy and powerful logging from Kotlin with coroutine support',
     url: url,
     baseUrl: '/',
     onBrokenLinks: 'throw',
@@ -25,18 +25,13 @@ module.exports = {
             items: [
                 {
                     type: 'doc',
-                    docId: 'intro',
+                    docId: 'get-started',
                     position: 'left',
                     label: 'Docs',
                 },
                 {
-                    to: '/blog',
-                    label: 'Blog',
-                    position: 'left'
-                },
-                {
                     href: 'https://github.com/klogging/klogging.io',
-                    label: 'GitHub',
+                    label: 'Website source',
                     position: 'right',
                 },
             ],
@@ -48,8 +43,8 @@ module.exports = {
                     title: 'Docs',
                     items: [
                         {
-                            label: 'Tutorial',
-                            to: '/doks/intro',
+                            label: 'Get started',
+                            to: '/docs/get-started',
                         },
                     ],
                 },
@@ -57,34 +52,30 @@ module.exports = {
                     title: 'Community',
                     items: [
                         {
-                            label: 'Stack Overflow',
-                            href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-                        },
-                        {
-                            label: 'Discord',
-                            href: 'https://discordapp.com/invite/docusaurus',
+                            label: 'Discussions',
+                            href: 'https://github.com/klogging/klogging/discussions',
                         },
                         {
                             label: 'Twitter',
-                            href: 'https://twitter.com/docusaurus',
+                            href: 'https://twitter.com/ktlogging',
                         },
                     ],
                 },
                 {
                     title: 'More',
                     items: [
+                        // {
+                        //     label: 'Blog',
+                        //     to: '/blog',
+                        // },
                         {
-                            label: 'Blog',
-                            to: '/blog',
-                        },
-                        {
-                            label: 'GitHub',
-                            href: 'https://github.com/facebook/docusaurus',
+                            label: 'Klogging GitHub',
+                            href: 'https://github.com/klogging',
                         },
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+            copyright: `Copyright © ${new Date().getFullYear()} Michael Strasser. Built with Docusaurus.`,
         },
         prism: {
             additionalLanguages: ['kotlin'],
@@ -98,13 +89,9 @@ module.exports = {
             {
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
-                    editUrl:
-                        'https://github.com/klogging/klogging.io/edit/main/website/',
                 },
                 blog: {
                     showReadingTime: true,
-                    editUrl:
-                        'https://github.com/klogging/klogging.io/edit/main/website/blog/',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),

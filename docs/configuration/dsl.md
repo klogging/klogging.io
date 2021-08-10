@@ -26,7 +26,7 @@ loggingConfiguration {
 This configuration:
 
 * First declares a [sink](../concepts/sinks) called `stdout` that [renders](../concepts/rendering) each
-  [log event](../concepts/log-events) into a [simple string format](../concepts/simple-string-format) and
+  [log event](../concepts/log-events) into a [simple string format](built-ins) and
   [dispatches](../concepts/dispatching) it to the standard output stream. Sinks should be
   configured first, before they are used.
 
