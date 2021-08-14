@@ -30,8 +30,8 @@ module.exports = {
                     label: 'Docs',
                 },
                 {
-                    href: 'https://github.com/klogging/klogging.io',
-                    label: 'Website source',
+                    href: 'https://github.com/klogging/klogging',
+                    label: 'GitHub',
                     position: 'right',
                 },
             ],
@@ -69,8 +69,12 @@ module.exports = {
                         //     to: '/blog',
                         // },
                         {
-                            label: 'Klogging GitHub',
-                            href: 'https://github.com/klogging',
+                            label: 'Klogging source',
+                            href: 'https://github.com/klogging/klogging',
+                        },
+                        {
+                            label: 'Website source',
+                            href: 'https://github.com/klogging/klogging.io',
                         },
                     ],
                 },

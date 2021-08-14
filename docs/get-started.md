@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Get started
@@ -50,6 +50,8 @@ To quickly create a `klogger` to log from `suspend` functions, implement the `Kl
 that defines a `logger` property:
 
 ```kotlin
+package com.example
+
 class ThingDoer : Klogging {
 }
 ```
