@@ -14,6 +14,7 @@ Here is a simple example:
 ```kotlin
 loggingConfiguration {
     sink("stdout", RENDER_SIMPLE, STDOUT)
+    sink("seq", seq("http://localhost:5341"))
     logging {
         fromLoggerBase("com.example")
         fromMinLevel(Level.INFO) {
@@ -105,15 +106,16 @@ loggingConfiguration {
 }
 ```
 
-To append a new configuration to any existing one:
+A scenario for appending a configuration is where the code defines a custom [renderer](../concepts/rendering)
+or [dispatcher](../concepts/dispatching).
 
 ```kotlin
+import com.example.customRenderer
+
 loggingConfiguration(append = true) {
-    // ...
+    sink("custom", customRenderer, STDOUT)
 }
 ```
-
-The new configuration can be a partial one.
 
 ### `kloggingMinLogLevel`
 
@@ -121,7 +123,7 @@ This function sets the minimum level used by the [internal logger](../internals/
 to decide whether to emit log messages.
 
 If not specified, the level is that set by the value of [environment variable](../internals/environment-variables)
-`KLOGGING_MIN_LOG_LEVEL`, which can override the built-in default value `INFO`.
+`KLOGGING_MIN_LOG_LEVEL`, which will override the built-in default value `INFO`.
 
 ### `sink`
 
