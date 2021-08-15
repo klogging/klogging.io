@@ -8,13 +8,20 @@ Klogging has an internal logger that emits string messages to the console.
 
 ## Usage
 
-The core function `log(Level, String, Exception?)` is called by utility functions, for example:
+The core function `log(Level, String, Exception?)` is called by utility functions for four levels:
+
+* `debug("Setting sink '${entry.key}' with ${entry.value}")`
 
 * `info("Setting configuration using the DSL with append=$append")`
 
 * `warn("Exception parsing JSON configuration", ex)`
 
-* `debug("Setting sink '${entry.key}' with ${entry.value}")`
+* `error("A serious error has occurred", ex)`
+
+:::note
+[Message templates](../concepts/message-templates) are not currently supported by the internal
+logger.
+:::
 
 ## Minimum logging level
 

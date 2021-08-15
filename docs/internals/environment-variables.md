@@ -9,5 +9,5 @@ in the runtime.
 
 Variable    | Purpose
 ------------|---------
-`KLOGGING_MIN_LOG_LEVEL` | Minimum level at which Klogging’s [internal logger](logger) emits log messages. Acceptable values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` and `FATAL`. 
+`KLOGGING_MIN_LOG_LEVEL` | Minimum level at which Klogging’s [internal logger](internal-logger) emits log messages. Acceptable values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` and `FATAL`. 
 `KLOGGING_CONFIG_JSON_PATH` | Absolute path to a [JSON configuration file](../configuration/json).

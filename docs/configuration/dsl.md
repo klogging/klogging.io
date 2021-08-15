@@ -119,7 +119,7 @@ loggingConfiguration(append = true) {
 
 ### `kloggingMinLogLevel`
 
-This function sets the minimum level used by the [internal logger](../internals/logger)
+This function sets the minimum level used by the [internal logger](../internals/internal-logger)
 to decide whether to emit log messages.
 
 If not specified, the level is that set by the value of [environment variable](../internals/environment-variables)

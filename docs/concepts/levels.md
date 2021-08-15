@@ -18,7 +18,7 @@ ERROR   | An error condition has occurred that requires attention.
 FATAL   | A serious error condition has occurred that has caused the program to stop.
 
 These levels are specified by the
-[`Level`](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/events/Level.kt)
+[`Level`](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/Level.kt)
 enum.
 
 ## Logger functions and levels
