@@ -5,7 +5,7 @@ sidebar_position: 1
 # Configuration DSL
 
 Klogging has a configuration DSL that makes it easy to get started. Put the configuration
-to run as early as possible in your program. 
+to run as early as possible in your program.
 
 ## A simple example
 
@@ -26,12 +26,12 @@ loggingConfiguration {
 
 This configuration:
 
-* First declares a [sink](../concepts/sinks) called `stdout` that [renders](../concepts/rendering) each
+- First declares a [sink](../concepts/sinks) called `stdout` that [renders](../concepts/rendering) each
   [log event](../concepts/log-events) into a [simple string format](built-ins) and
   [dispatches](../concepts/dispatching) it to the standard output stream. Sinks should be
   configured first, before they are used.
 
-* Next declares a logging configuration that applies to loggers with names starting
+- Next declares a logging configuration that applies to loggers with names starting
   with `com.example`. In this configuration, all log events at [severity level](../concepts/levels)
   `INFO` or greater are [dispatched](../concepts/dispatching) to the `stdout` sink.
 
@@ -69,23 +69,23 @@ loggingConfiguration {
 
 This example has four sinks:
 
-* `stdout` to the standard output stream;
-* `stderr` to the standard error stream;
-* `seq` to a local [Seq log aggregator](https://datalust.co/seq) server; and
-* `auditing` to a Syslog server.
+- `stdout` to the standard output stream;
+- `stderr` to the standard error stream;
+- `seq` to a local [Seq log aggregator](https://datalust.co/seq) server; and
+- `auditing` to a Syslog server.
 
 Three logging configurations, which together mean:
 
-* Loggers with names starting with `com.example` dispatch their log events:
-  * all at level `INFO` or greater to sink `seq`;
-  * at level `INFO` also to sink `stdout`; and
-  * any at level `WARN` or greater to sink `stderr`.
+- Loggers with names starting with `com.example` dispatch their log events:
 
+  - all at level `INFO` or greater to sink `seq`;
+  - at level `INFO` also to sink `stdout`; and
+  - any at level `WARN` or greater to sink `stderr`.
 
-* Logger `com.example.service.FancyService` also dispatches log events with level `DEBUG` to
+- Logger `com.example.service.FancyService` also dispatches log events with level `DEBUG` to
   sink `seq`.
 
-* Loggers with names starting with `audit` dispatch all log events to sink `auditing`.
+- Loggers with names starting with `audit` dispatch all log events to sink `auditing`.
 
 :::info
 Configuration for **syslog** sinks is not yet available.
@@ -161,14 +161,14 @@ The following sections explain details.
 
 These functions specify how to match logger names. For example:
 
-* `fromLoggerBase("com.example")` matches all loggers with names that start with `com.example`, such
+- `fromLoggerBase("com.example")` matches all loggers with names that start with `com.example`, such
   as `com.example.config.ConfigApp`, `com.example.services.BlodgeService` etc.
 
-* `exactLogger("com.example.services.GlubService")` matches only the logger called
+- `exactLogger("com.example.services.GlubService")` matches only the logger called
   `com.example.services.GlubService`. No other logger with match.
 
 :::caution
-`exactLogger` takes precedence if both  are specified in a `logging` section.
+`exactLogger` takes precedence if both are specified in a `logging` section.
 :::
 
 :::info
@@ -180,10 +180,10 @@ This configuration is the equivalent of the root logger in Log4j or Logback.
 
 These functions specify the levels at which to dispatch log events. For example:
 
-* `fromMinLevel(Level.INFO)` will enable all events at `INFO` level and above (i.e. more severe:
+- `fromMinLevel(Level.INFO)` will enable all events at `INFO` level and above (i.e. more severe:
   `WARN`, `ERROR` and `FATAL`) to be dispatched.
 
-* `atLevel(Level.WARN)` enables only events at `WARN` level to be dispatched by matching loggers.
+- `atLevel(Level.WARN)` enables only events at `WARN` level to be dispatched by matching loggers.
 
 The functions accept a lambda to specify which sinks to dispatch to.
 

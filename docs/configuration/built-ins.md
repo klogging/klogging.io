@@ -17,10 +17,10 @@ console. Examples are:
 2021-08-14 20:54:54.228971 INFO [DefaultDispatcher-worker-2] Playpen : Event 1 at 2021-08-14T20:54:54.228927 : {Iteration=1, RightNow=2021-08-14T20:54:54.228927, run=59faf624-b43b-4bc2-9af0-108bdd1bbf86, Counter=2}
 ```
 
-* The timestamp is in the server’s local time zone.
-* If there are `items` as part of the [log event](../concepts/log-events), the keys and values are printed at the end of
+- The timestamp is in the server’s local time zone.
+- If there are `items` as part of the [log event](../concepts/log-events), the keys and values are printed at the end of
   the line in curly braces.
-* If there is a stack trace as part of the log event, it is printed starting on the next line.
+- If there is a stack trace as part of the log event, it is printed starting on the next line.
 
 ## STDOUT
 
@@ -70,7 +70,7 @@ An example is:
   "version": "1.1",
   "host": "MikeBook",
   "short_message": ">> 1",
-  "timestamp": 1628939552.786044000,
+  "timestamp": 1628939552.786044,
   "level": 6,
   "_Counter": "1",
   "_run": "f02ec82a-616c-4d2f-8ccb-c14c0a771f67",

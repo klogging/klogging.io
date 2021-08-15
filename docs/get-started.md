@@ -72,4 +72,3 @@ You will see a log message on your console like this:
 ```
 2021-08-10 22:29:30.300509 INFO [main] com.example.ThingDoer : Doing the thing
 ```
-

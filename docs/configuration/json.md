@@ -24,9 +24,7 @@ the [first DSL example](dsl#a-simple-example):
       "levelRanges": [
         {
           "fromMinLevel": "INFO",
-          "toSinks": [
-            "stdout"
-          ]
+          "toSinks": ["stdout"]
         }
       ]
     }
@@ -40,13 +38,13 @@ the [first DSL example](dsl#a-simple-example):
 
 Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with keys:
 
-* `renderWith`: name of a built-in [renderer](../concepts/rendering). Current values are `RENDER_SIMPLE`,
+- `renderWith`: name of a built-in [renderer](../concepts/rendering). Current values are `RENDER_SIMPLE`,
   `RENDER_CLEF` and `RENDER_GELF`.
 
-* `dispatchTo`: name of a built-in [dispatcher](../concepts/dispatching). Current values are `STDOUT` and
+- `dispatchTo`: name of a built-in [dispatcher](../concepts/dispatching). Current values are `STDOUT` and
   `STDERR`.
 
-* `seqServer`: URL of a [Seq server](https://datalust.co) where events are to be dispatched. By default,
+- `seqServer`: URL of a [Seq server](https://datalust.co) where events are to be dispatched. By default,
   the RENDER_CLEF renderer is used.
 
 :::caution
@@ -61,9 +59,9 @@ The `sinks` object is evolving and there will be more options in the future.
 
 Equivalent to the [logging](dsl#logging) DSL function. Array of objects, each with keys:
 
-* `fromLoggerBase` (optional): base name to match logger names.
+- `fromLoggerBase` (optional): base name to match logger names.
 
-* `exactLogger` (optional): exact name of logger to match.
+- `exactLogger` (optional): exact name of logger to match.
 
 :::caution
 `exactLogger` takes precedence if both are specified in a `logging` object.
@@ -78,17 +76,17 @@ Log4j or Logback.
 
 Array of objects, each with keys:
 
-* `fromMinLevel`: Name of the minimum level for log events to be emitted. For example, if the value is `INFO` then
+- `fromMinLevel`: Name of the minimum level for log events to be emitted. For example, if the value is `INFO` then
   events at severity `INFO`, `ERROR` and
   `FATAL` will be emitted. Equivalent to the [fromMinLevel](dsl#fromminlevel-and-atlevel) DSL function.
 
-* `atLevel`: Name of the exact level at which log events will be emitted. Equivalent to
+- `atLevel`: Name of the exact level at which log events will be emitted. Equivalent to
   the [atLevel](dsl#fromminlevel-and-atlevel) DSL function.
 
-* `toSinks`: Array of sink names where events will be dispatched. If it does not match a key of the `sinks` object, a
+- `toSinks`: Array of sink names where events will be dispatched. If it does not match a key of the `sinks` object, a
   warning is written to the console and the configuration is ignored.
 
-:::caution 
+:::caution
 You must specify at least one `levelRange` object with at least one matching sink name or no logs will be
 emitted.
 :::

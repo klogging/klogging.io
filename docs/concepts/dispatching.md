@@ -11,5 +11,3 @@ Klogging has the functional type `DispatchString` defined as:
 ```kotlin
 public typealias DispatchString = (String) -> Unit
 ```
-
-

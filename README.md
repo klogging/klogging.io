@@ -1,3 +1,1 @@
 # Klogging website
-
-

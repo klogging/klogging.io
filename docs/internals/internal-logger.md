@@ -10,13 +10,13 @@ Klogging has an internal logger that emits string messages to the console.
 
 The core function `log(Level, String, Exception?)` is called by utility functions for four levels:
 
-* `debug("Setting sink '${entry.key}' with ${entry.value}")`
+- `debug("Setting sink '${entry.key}' with ${entry.value}")`
 
-* `info("Setting configuration using the DSL with append=$append")`
+- `info("Setting configuration using the DSL with append=$append")`
 
-* `warn("Exception parsing JSON configuration", ex)`
+- `warn("Exception parsing JSON configuration", ex)`
 
-* `error("A serious error has occurred", ex)`
+- `error("A serious error has occurred", ex)`
 
 :::note
 [Message templates](../concepts/message-templates) are not currently supported by the internal
@@ -28,9 +28,9 @@ logger.
 The internal logger has a minimum level from which it will emit log messages, set by
 the ‘global’ variable `kloggingMinLogLevel`.
 
-* The level is `INFO` by default.
+- The level is `INFO` by default.
 
-* It can be changed by the environment variable `KLOGGING_MIN_LOG_LEVEL`
+- It can be changed by the environment variable `KLOGGING_MIN_LOG_LEVEL`
 
 ## Under the hood
 
@@ -38,6 +38,6 @@ the ‘global’ variable `kloggingMinLogLevel`.
 constructs log events, renders them as string messages using a specific renderer and sends
 them to the console.
 
-* If the logging level is `INFO` or lower, they are sent to the standard output stream.
-* If the logging level is `WARN` or higher, they are sent to the standard error stream.
+- If the logging level is `INFO` or lower, they are sent to the standard output stream.
+- If the logging level is `WARN` or higher, they are sent to the standard error stream.
   Some shells will show these messages in a different colour (e.g. red).
