@@ -13,9 +13,9 @@ const FeatureList = [
         details: (
             <p>
                 When you use a message template in logging code:
-                <img src="/static/img/log-info-user-logged-in.png" alt="Logging for user logged in"/>
+                <img src="/img/log-info-user-logged-in.png" alt="Logging for user logged in"/>
                 Klogging creates a structured log event:
-                <img src="/static/img/clef-json-user-logged-in.png" alt="JSON log event for user logged in"/>
+                <img src="/img/clef-json-user-logged-in.png" alt="JSON log event for user logged in"/>
             </p>
         ),
     },
@@ -31,9 +31,9 @@ const FeatureList = [
         details: (
             <p>
                 Put some information into coroutine scope:
-                <img src="/static/img/log-info-coroutine-log-context.png" alt="Logging with coroutine context"/>
+                <img src="/img/log-info-coroutine-log-context.png" alt="Logging with coroutine context"/>
                 Klogging includes the information in the log event:
-                <img src="/static/img/clef-json-coroutine-log-context.png" alt="JSON log event with coroutine context"/>
+                <img src="/img/clef-json-coroutine-log-context.png" alt="JSON log event with coroutine context"/>
             </p>
         ),
     },
@@ -50,7 +50,7 @@ const FeatureList = [
             <p>
                 Avoid the situation where you need to know the order of log events but
                 can’t tell from the log aggregation:
-                <img src="/static/img/log-messages-same-millisecond.png" alt="Log messages at same millisecond"/>
+                <img src="/img/log-messages-same-millisecond.png" alt="Log messages at same millisecond"/>
             </p>
         ),
     },

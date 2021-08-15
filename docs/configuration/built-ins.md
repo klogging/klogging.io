@@ -6,7 +6,9 @@ sidebar_position: 3
 
 Klogging provides a number of built-in configurations.
 
-## RENDER_SIMPLE
+## Rendering
+
+### RENDER_SIMPLE
 
 A `RenderString` instance that renders log events as string messages suitable for a
 console. Examples are:
@@ -22,19 +24,7 @@ console. Examples are:
   the line in curly braces.
 - If there is a stack trace as part of the log event, it is printed starting on the next line.
 
-## STDOUT
-
-A `DispatchString` instance that prints strings to the standard output stream.
-
-## STDERR
-
-A `DispatchString` instance that prints strings to the standard error stream.
-
-## DEFAULT_CONSOLE
-
-A sink configuration that renders using `RENDER_SIMPLE` and dispatches using `STDOUT` to a sink called `console`.
-
-## RENDER_CLEF
+### RENDER_CLEF
 
 A `RenderString` instance that converts log events into JSON using
 [Compact Log Event Format](https://docs.datalust.co/docs/posting-raw-events#compact-json-format) for
@@ -58,7 +48,7 @@ In Seq it is shown like this:
 
 ![](../../static/img/clef-json-in-seq.png)
 
-## RENDER_GELF
+### RENDER_GELF
 
 A `RenderString` instance that converts log events into JSON using
 [Graylog Extended Log Format](https://docs.graylog.org/en/latest/pages/gelf.html#gelf-payload-specification)
@@ -77,3 +67,19 @@ An example is:
   "_logger": "Playpen"
 }
 ```
+
+## Dispatching
+
+### STDOUT
+
+A `DispatchString` instance that prints strings to the standard output stream.
+
+### STDERR
+
+A `DispatchString` instance that prints strings to the standard error stream.
+
+## Rendering and dispatching
+
+### DEFAULT_CONSOLE
+
+A sink configuration that renders using `RENDER_SIMPLE` and dispatches using `STDOUT` to a sink called `console`.
