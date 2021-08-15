@@ -38,7 +38,7 @@ the [first DSL example](dsl#a-simple-example):
 
 ### `sinks`
 
-Equivalent to the [sinks](dsl#sinks) DSL function. Object keyed by sink name with keys:
+Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with keys:
 
 * `renderWith`: name of a built-in [renderer](../concepts/rendering). Current values are `RENDER_SIMPLE`,
   `RENDER_CLEF` and `RENDER_GELF`.

@@ -15,5 +15,5 @@ Example destinations are:
 * [Seq log aggregator](https://datalust.co/seq)
 * [Graylog log aggregator](https://www.graylog.org/)
 * [Logstash](https://www.elastic.co/logstash/) as part of the [ELK stack](https://www.elastic.co/what-is/elk-stack)
-* [Splunk](https://splunk.com)
+* [Splunk](https://www.splunk.com)
 * [Syslog](https://en.wikipedia.org/wiki/Syslog)
