@@ -1,63 +1,53 @@
 name: CI
-on: [push, pull_request]
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
 
 jobs:
-  build:
-    name: "Build"
-    runs-on: ubuntu-20.04
-    env:
-      TERM: xterm-256color
-      BATECT_CACHE_TYPE: directory
-      BATECT_ENABLE_TELEMETRY: true
-
+  checks:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2.3.4
-
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v2.1.0
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
-          java-version: 8
-          distribution: adopt
-
-      - name: Cache Batect
-        uses: actions/cache@v2
+          node-version: '12.x'
+      - name: Test Build
+        run: |
+          if [ -e yarn.lock ]; then
+            yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+            npm ci
+          else
+            npm i
+          fi
+          npm run build
+  gh-release:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
-          path: ~/.batect/cache
-          key: batect-${{ hashFiles('batect') }}
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
+          node-version: '12.x'
+      - uses: webfactory/ssh-agent@v0.5.0
         with:
-          path: .batect/caches
-          key: batect-caches-${{ hashFiles('yarn.lock') }}-${{ hashFiles('batect.yml') }}
-
-      - name: Download dependencies
-        run: ./batect setup
-
-      - name: Build
-        run: ./batect build
-
-#      - name: Check formatting
-#        run: ./batect check-format
-
-#      - name: Check for linting issues
-#        run: ./batect lint
-
-      # - name: Check for broken links
-      #   run: ./batect check-links
-
-#      - name: Check for broken redirects
-#        run: ./batect check-redirects
-#      - name: Deploy
-#        run: ./batect deploy
-#        if: github.event_name == 'push' && github.repository == 'batect/batect.dev' && github.ref == 'refs/heads/main'
-#        env:
-#          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-#          DEPLOY_DESCRIPTION: "Deploy commit ${{ github.sha }} from GitHub Actions"
-
-#      - name: Update search index
-#        run: ./batect update-search-index
-#        if: github.event_name == 'push' && github.repository == 'batect/batect.dev' && github.ref == 'refs/heads/main'
-#        env:
-#          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Release to GitHub Pages
+        env:
+          USE_SSH: true
+          GIT_USER: mjstrasser
+        run: |
+          git config --global user.email "info@klogging.io"
+          git config --global user.name "mjstrasser"
+          if [ -e yarn.lock ]; then
+            yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+            npm ci
+          else
+            npm i
+          fi
+          npm run deploy

@@ -1,4 +1,3 @@
-const copyright = "Copyright © 2021 Michael Strasser";
 const url = process.env["SITE_URL"] || "https://klogging.io";
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
@@ -15,6 +14,7 @@ module.exports = {
   favicon: "img/favicon.ico",
   organizationName: "klogging",
   projectName: "klogging.io",
+  trailingSlash: false,
   themeConfig: {
     navbar: {
       title: "Klogging",
