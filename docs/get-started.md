@@ -20,11 +20,11 @@ Maven: in `pom.xml`:
 
 ```xml
 <dependencies>
-    <dependency>
-        <groupId>io.klogging</groupId>
-        <artifactId>klogging-jvm</artifactId>
-        <version>0.3.0</version>
-    </dependency>
+  <dependency>
+    <groupId>io.klogging</groupId>
+    <artifactId>klogging-jvm</artifactId>
+    <version>0.3.0</version>
+  </dependency>
 </dependencies>
 ```
 
@@ -46,7 +46,7 @@ Or place the file `klogging.json` in a directory on your application’s classpa
 
 ## Create a logger
 
-To quickly create a `klogger` to log from `suspend` functions, implement the `Klogging` interface
+To quickly create a `Klogger` instance to log from `suspend` functions, implement the `Klogging` interface
 that defines a `logger` property:
 
 ```kotlin

@@ -82,7 +82,7 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Michael Strasser. Built with Docusaurus.`,
     },
     prism: {
-      additionalLanguages: ["kotlin"],
+      additionalLanguages: ["kotlin", "java"],
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
