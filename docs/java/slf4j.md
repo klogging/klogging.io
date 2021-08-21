@@ -11,8 +11,8 @@ that maps API calls to a logging framework (e.g. Logback, Log4j).
 Many Java programs and frameworks, including [Spring](https://spring.io/), log using the
 SLF4J API.
 
-Klogging has an [SLF4J binding](https://github.com/klogging/slf4j-klogging) (currently under
-development) that allows existing programs using SLF4J to switch the framework to Klogging.
+Klogging has an [SLF4J binding](https://github.com/klogging/slf4j-klogging)
+that allows existing programs using SLF4J to switch the framework to Klogging.
 
 ## Setting up
 
@@ -20,7 +20,7 @@ Include these dependencies in your Gradle build file:
 
 ```kotlin
     implementation("io.klogging:klogging-jvm:0.3.0")
-    implementation("io.klogging:slf4j-klogging:0.1.0") // Coming soon
+    implementation("io.klogging:slf4j-klogging:0.1.0")
     implementation("org.slf4j:slf4j-api:1.7.32")
 ```
 
@@ -35,7 +35,7 @@ In Maven:
 <dependency>
   <groupId>io.klogging</groupId>
   <artifactId>slf4j-klogging</artifactId>
-  <version>0.1.0</version> <!-- Coming soon -->
+  <version>0.1.0</version>
 </dependency>
 <dependency>
   <groupId>org.slf4j</groupId>
