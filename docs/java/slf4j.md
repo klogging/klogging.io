@@ -27,21 +27,23 @@ Include these dependencies in your Gradle build file:
 In Maven:
 
 ```xml
-<dependency>
-  <groupId>io.klogging</groupId>
-  <artifactId>klogging-jvm</artifactId>
-  <version>0.3.0</version>
-</dependency>
-<dependency>
-  <groupId>io.klogging</groupId>
-  <artifactId>slf4j-klogging</artifactId>
-  <version>0.1.0</version>
-</dependency>
-<dependency>
-  <groupId>org.slf4j</groupId>
-  <artifactId>slf4j-api</artifactId>
-  <version>1.7.32</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>io.klogging</groupId>
+    <artifactId>klogging-jvm</artifactId>
+    <version>0.3.0</version>
+  </dependency>
+  <dependency>
+    <groupId>io.klogging</groupId>
+    <artifactId>slf4j-klogging</artifactId>
+    <version>0.1.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.32</version>
+  </dependency>
+</dependencies>
 ```
 
 ## Including values in messages
