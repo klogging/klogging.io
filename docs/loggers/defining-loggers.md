@@ -6,7 +6,7 @@ sidebar_position: 10
 
 Klogging provides a number of ways of defining loggers.
 
-## Implement `Klogging`
+## Implement `Klogging` interface
 
 The interface `io.klogging.Klogging` includes a `logger` property that returns a
 `Klogger` instance with the name of the class. For example:

@@ -26,7 +26,7 @@ dependencies {
 }
 ```
 
-Spring uses [SLF4J](slf4j) for logging and bundles [Logback](http://logback.qos.ch/)
+Spring uses [SLF4J](https://www.slf4j.org/) for sending logs and bundles [Logback](http://logback.qos.ch/)
 as the default binding. The `exclude` functions shown here are needed to exclude Logback
 from Spring.
 

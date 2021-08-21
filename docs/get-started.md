@@ -36,7 +36,8 @@ To see logs in your console quickly, using the [configuration DSL](configuration
 loggingConfiguration { DEFAULT_CONSOLE() }
 ```
 
-Or place the file `klogging.json` in a directory on your application’s classpath:
+Or place the file `klogging.json` in a directory on your application’s classpath to use
+[JSON configuration](configuration/json):
 
 ```json
 {

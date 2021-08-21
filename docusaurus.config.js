@@ -30,6 +30,11 @@ module.exports = {
           label: "Docs",
         },
         {
+          href: "https://dokka.klogging.io",
+          label: "Dokka",
+          position: "right",
+        },
+        {
           href: "https://github.com/klogging/klogging",
           label: "GitHub",
           position: "right",
@@ -45,6 +50,10 @@ module.exports = {
             {
               label: "Get started",
               to: "/docs/get-started",
+            },
+            {
+              label: "Klogging with Spring Boot",
+              to: "/docs/java/spring-boot",
             },
           ],
         },
@@ -64,13 +73,13 @@ module.exports = {
         {
           title: "More",
           items: [
-            // {
-            //     label: 'Blog',
-            //     to: '/blog',
-            // },
             {
               label: "Klogging source",
               href: "https://github.com/klogging/klogging",
+            },
+            {
+              label: "Klogging Dokka",
+              href: "https://dokka.klogging.io",
             },
             {
               label: "Website source",
