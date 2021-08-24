@@ -66,7 +66,7 @@ module.exports = {
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/ktlogging",
+              href: "https://twitter.com/klogging_io",
             },
           ],
         },
