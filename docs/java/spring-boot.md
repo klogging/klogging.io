@@ -51,6 +51,7 @@ Something like this:
     <groupId>io.klogging</groupId>
     <artifactId>klogging-spring-boot-starter</artifactId>
     <version>0.1.3</version>
+    <type>pom</type>
   </dependency>
   <!-- Other runtime dependencies -->
 
