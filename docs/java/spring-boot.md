@@ -33,7 +33,7 @@ from Spring.
 
 ## Maven setup
 
-Something like this (untested):
+Something like this:
 
 ```xml
 <dependencies>
@@ -42,7 +42,8 @@ Something like this (untested):
     <artifactId>spring-boot-starter</artifactId>
     <exclusions>
       <exclusion>
-        <groupId>ch.qos.logback</groupId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-logging</artifactId>
       </exclusion>
     </exclusions>
   </dependency>
@@ -58,7 +59,8 @@ Something like this (untested):
     <artifactId>spring-boot-starter-test</artifactId>
     <exclusions>
       <exclusion>
-        <groupId>ch.qos.logback</groupId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-logging</artifactId>
       </exclusion>
     </exclusions>
   </dependency>
