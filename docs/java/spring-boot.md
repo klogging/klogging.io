@@ -5,6 +5,8 @@ sidebar_position: 30
 # Klogging with Spring Boot
 
 You can use Klogging as the logging framework of a Spring Boot application.
+The [Klogging spring boot starter](https://github.com/klogging/klogging-spring-boot-starter)
+makes it simple.
 
 ## Gradle setup
 
@@ -15,8 +17,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux") {
         exclude(group = "ch.qos.logback")
     }
-    implementation("io.klogging:klogging-jvm:0.3.0")
-    implementation("io.klogging:slf4j-klogging:0.1.0")
+    implementation("io.klogging:klogging-spring-boot-starter:0.1.3")
     // Other runtime dependencies.
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -47,13 +48,8 @@ Something like this (untested):
   </dependency>
   <dependency>
     <groupId>io.klogging</groupId>
-    <artifactId>klogging-jvm</artifactId>
-    <version>0.3.0</version>
-  </dependency>
-  <dependency>
-    <groupId>io.klogging</groupId>
-    <artifactId>slf4j-klogging</artifactId>
-    <version>0.1.0</version>
+    <artifactId>klogging-spring-boot-starter</artifactId>
+    <version>0.1.3</version>
   </dependency>
   <!-- Other runtime dependencies -->
 
