@@ -8,7 +8,9 @@ Klogging has an internal logger that emits string messages to the console.
 
 ## Usage
 
-The core function `log(Level, String, Exception?)` is called by utility functions for four levels:
+The core function `log(Level, String, Exception?)` is called by utility functions for five levels:
+
+- `trace("Read event ${logEvent.id} from events channel")`
 
 - `debug("Setting sink '${entry.key}' with ${entry.value}")`
 
