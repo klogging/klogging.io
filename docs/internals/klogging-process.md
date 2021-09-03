@@ -2,12 +2,7 @@
 sidebar_position: 5
 ---
 
-# Klogging internal process (under development)
-
-:::note
-This process is not yet implemented: I am re-writing the internals of Klogging to make the best use of coroutines
-and to provide predictable ordering of log events to some destinations.
-:::
+# Klogging internal process
 
 Klogging processes log events through Kotlin [coroutine channels](https://kotlinlang.org/docs/channels.html).
 
@@ -25,7 +20,7 @@ Notes:
 
 - **Send**: deliver a rendered log event to a destination.
 
-- [LogEvent](../concepts/log-events)s are constructed as close as possible to the code they describe.
+- Log events are constructed as close as possible to the code they describe.
 
 - [Klogger](../loggers/defining-loggers) instances have `suspend` functions for emitting log events.
 
@@ -42,14 +37,13 @@ new coroutines unless necessary.
 
 New coroutines are launched in these places:
 
-- Creating the loop in [Logging.kt](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/impl/Logging.kt#L42)
-  (location may change) that reads from the events channel and calls `dispatchEvent`.
+- Creating the loop in [Emitter.kt](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/internal/Emitter.kt#L41) that reads from the events channel and calls `dispatchEvent`.
 
 - Emitting log events into the events channel from
   [NoCoLoggerImpl.kt](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/impl/NoCoLoggerImpl.kt#L41).
   A new coroutine is launched for every log event.
 
-- Creating the loop in [Sink.kt](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/internal/Sink.kt#41)
+- Creating the loop in [Sink.kt](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/internal/Sink.kt#L41)
   that reads from the channel for each sink.
 
 Sinks may launch coroutines in order to send log events to their destinations.
