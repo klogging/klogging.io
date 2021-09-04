@@ -1,11 +1,11 @@
 ---
-sidebar_position: 6
+sidebar_position: 70
 ---
 
 # Sinks
 
 Sinks are destinations for log events. Klogging configuration names sinks
-as having a [renderer](rendering) to `String` and [dispatching](dispatching)
+as having a [renderer](rendering) to `String` and [sender](sending)
 those strings to a destination.
 
 Example destinations are:

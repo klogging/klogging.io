@@ -41,7 +41,7 @@ Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with
 - `renderWith`: name of a built-in [renderer](../concepts/rendering). Current values are `RENDER_SIMPLE`,
   `RENDER_CLEF` and `RENDER_GELF`.
 
-- `dispatchTo`: name of a built-in [dispatcher](../concepts/dispatching). Current values are `STDOUT` and
+- `sendTo`: name of a built-in [sender](../concepts/sending). Current values are `STDOUT` and
   `STDERR`.
 
 - `seqServer`: URL of a [Seq server](https://datalust.co) where events are to be dispatched. By default,

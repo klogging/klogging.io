@@ -1,10 +1,10 @@
 ---
-sidebar_position: 4
+sidebar_position: 50
 ---
 
 # Rendering
 
-Log events are _rendered_ before being [dispatched](dispatching) to [sinks](sinks).
+Log events are _rendered_ before being [sent](sending) to [sinks](sinks).
 
 The functional type `RenderString` is implemented to render events into string
 representations of them:
