@@ -10,7 +10,7 @@ Klogging processes log events through Kotlin [coroutine channels](https://kotlin
 
 Notes:
 
-- **Filter**: only construct and emit a log event if [specified by Klogger configuration](level-checking).
+- **Filter**: only construct and emit a log event if [specified by Klogger configuration](../internals/level-checking).
 
 - **Emit**: send a log event into the events channel.
 
