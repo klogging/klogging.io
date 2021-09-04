@@ -12,7 +12,7 @@ the [first DSL example](dsl#a-simple-example):
   "sinks": {
     "stdout": {
       "renderWith": "RENDER_SIMPLE",
-      "dispatchTo": "STDOUT"
+      "sendTo": "STDOUT"
     },
     "seq": {
       "seqServer": "http://localhost:5341"
@@ -32,23 +32,28 @@ the [first DSL example](dsl#a-simple-example):
 }
 ```
 
+:::note
+An earlier version used the key `dispatchTo` instead of `sendTo`. Use of `dispatchTo` is deprecated;
+a warning will be printed to the console if it is found in JSON configuration.
+:::
+
 ## Configuration object names
 
 ### `sinks`
 
 Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with keys:
 
-- `renderWith`: name of a built-in [renderer](../concepts/rendering). Current values are `RENDER_SIMPLE`,
-  `RENDER_CLEF` and `RENDER_GELF`.
+- `renderWith`: name of a [built-in renderer](built-ins#rendering). Current values are `RENDER_SIMPLE`,
+  `RENDER_ANSI`, `RENDER_CLEF` and `RENDER_GELF`.
 
-- `sendTo`: name of a built-in [sender](../concepts/sending). Current values are `STDOUT` and
+- `sendTo`: name of a [built-in sender](built-ins#sending). Current values are `STDOUT` and
   `STDERR`.
 
 - `seqServer`: URL of a [Seq server](https://datalust.co) where events are to be dispatched. By default,
   the RENDER_CLEF renderer is used.
 
 :::caution
-`seqServer` takes precedence over `dispatchTo` if both are present.
+`seqServer` takes precedence over `sendTo` if both are present.
 :::
 
 :::info
@@ -83,7 +88,7 @@ Array of objects, each with keys:
 - `atLevel`: Name of the exact level at which log events will be emitted. Equivalent to
   the [atLevel](dsl#fromminlevel-and-atlevel) DSL function.
 
-- `toSinks`: Array of sink names where events will be dispatched. If it does not match a key of the `sinks` object, a
+- `toSinks`: Array of sink names where events will be sent. If it does not match a key of the `sinks` object, a
   warning is written to the console and the configuration is ignored.
 
 :::caution
