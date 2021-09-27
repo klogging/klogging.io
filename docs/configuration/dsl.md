@@ -42,9 +42,14 @@ loggingConfiguration {
     sink("stdout", RENDER_SIMPLE, STDOUT)
     sink("stderr", RENDER_SIMPLE, STDERR)
     sink("seq", seq(server = "http://localhost:5341"))
-    sink("auditing") {
-        syslog(config = "syslogConfig") { render(renderAudit) }
-    }
+    sink("auditing", splunkHec(
+        SplunkEndpoint(
+            hecUrl = "https://splunk:8088",
+            hecToken = "3f4d4f4d-e1ed-44e2-b2d7-ba14f2dc19ed",
+            index = "auditing",
+            sourceType = "service_audit",
+        )
+    ))
     logging {
         fromLoggerBase("com.example")
         atLevel(Level.INFO) {
@@ -72,7 +77,7 @@ This example has four sinks:
 - `stdout` to the standard output stream;
 - `stderr` to the standard error stream;
 - `seq` to a local [Seq log aggregator](https://datalust.co/seq) server; and
-- `auditing` to a Syslog server.
+- `auditing` to a [Splunk](https://www.splunk.com) server.
 
 Three logging configurations, which together mean:
 
@@ -86,10 +91,6 @@ Three logging configurations, which together mean:
   sink `seq`.
 
 - Loggers with names starting with `audit` dispatch all log events to sink `auditing`.
-
-:::info
-Configuration for **syslog** sinks is not yet available.
-:::
 
 ## DSL reference
 
@@ -143,7 +144,29 @@ This example configures two sinks:
   [CLEF](https://docs.datalust.co/docs/posting-raw-events#compact-json-format) compact JSON format and
   dispatching them to a [Seq server](https://datalust.co/seq) running locally.
 
-Sinks must be declared before they are referenced in [`toSink`](#tosink) functions.
+Klogging also supports logging directly to a Splunk [HTTP Event Collector
+(HEC)](https://docs.splunk.com/Documentation/Splunk/8.2.2/Data/HECExamples), specified using the
+`splunkHec` function:
+
+```kotlin
+    splunkHec(
+        SplunkEndpoint(
+            hecUrl = "https://splunk:8088",
+            hecToken = System.env("SPLUNK_HEC_TOKEN"),
+            index = "main",
+            sourceType = "klogging",
+            checkCertificate = true,
+        )
+    )
+```
+
+- `hecUrl` specifies the URL of the Splunk server’s HEC endpoint. It uses HTTPS by default.
+- `hecToken` is the HEC token used by Splunk for these logging events and is a secret
+   that may be passed in via the execution environment.
+- `index` is the Splunk index for the events (default `main`).
+- `sourceType` is the Splunk `sourcetype` value (default `klogging`).
+- `checkCertificate` indicates whether Klogging should check the TLS certificate used by the
+   Splunk server (default `true`).
 
 :::info
 The `sink` function is not complete and will be enhanced in the future.
@@ -214,14 +237,14 @@ During dispatching, an event is never dispatched to a sink more than once. Given
         fromLoggerBase("com.example")
         fromMinLevel(Level.INFO) {
             toSink("stdout")
-            toSink("seq")
+            toSink("splunk")
         }
         fromMinLevel(Level.WARN) {
             toSink("stderr")
-            toSink("seq")
+            toSink("splunk")
         }
     }
 ```
 
-An event from logger `com.example.nurdling.NurdleController` at level `WARN` is dispatched to `seq` only once.
+An event from logger `com.example.nurdling.NurdleController` at level `WARN` is dispatched to `splunk` only once.
 There is no need to disable additivity as in Log4J and Logback.
