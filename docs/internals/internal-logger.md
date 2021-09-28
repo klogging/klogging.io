@@ -8,17 +8,17 @@ Klogging has an internal logger that emits string messages to the console.
 
 ## Usage
 
-The core function `log(Level, String, Exception?)` is called by utility functions for five levels:
+The core function `log(String, Level, String, Exception?)` is called by utility functions for five levels:
 
-- `trace("Read event ${logEvent.id} from events channel")`
+- `trace("Sink", "Forwarding event ${event.id} to sink $name")`
 
-- `debug("Setting sink '${entry.key}' with ${entry.value}")`
+- `debug("Emitter", "Starting events channel")`
 
-- `info("Setting configuration using the DSL with append=$append")`
+- `info("Configuration", "Setting configuration using the DSL with append=$append")`
 
-- `warn("Exception parsing JSON configuration", ex)`
+- `warn("JsonConfiguration", "Exception parsing JSON", ex)`
 
-- `error("A serious error has occurred", ex)`
+- `error("Sink", "A serious error has occurred", ex)`
 
 :::note
 [Message templates](../concepts/message-templates) are not currently supported by the internal

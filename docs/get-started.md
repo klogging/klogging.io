@@ -28,6 +28,11 @@ Maven: in `pom.xml`:
 </dependencies>
 ```
 
+:::info
+See [Using snapshot builds](#using-snapshot-builds) below for using current, unreleased builds
+of Klogger.
+:::
+
 ## Configure Klogging
 
 To see logs in your console quickly, using the [configuration DSL](configuration/dsl):
@@ -72,4 +77,22 @@ You will see a log message on your console like this:
 
 ```
 2021-08-10 22:29:30.300509 INFO [main] com.example.ThingDoer : Doing the thing
+```
+
+## Using snapshot builds
+
+If you want to use the latest snapshot builds, specify these in your `build.gradle.kts`:
+
+```kotlin
+repositories {
+    // ...
+    maven {
+        url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    }
+}
+
+dependencies {
+    // ...
+    implementation("io.klogging:klogging-jvm:0.4.0-SNAPSHOT")
+}
 ```

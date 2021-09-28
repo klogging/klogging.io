@@ -8,7 +8,7 @@ Kotlin coroutines provide two advantages to Klogging.
 
 ## Contextual information management
 
-The [`LogContext`](https://github.com/klogging/klogging/src/commonMain/kotlin/io/klogging/context/LogContext.kt)
+The [`LogContext`](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/context/LogContext.kt)
 class is designed to hold a map of contextual information in a
 coroutine context. For example:
 
@@ -28,7 +28,7 @@ The log events sent by any code within the scope of the launched
 coroutine will contain a field called `runId` with the value of
 `input.runId` for that particular run.
 
-![](/img/seq-log-events-same-runId.png)
+![Example of two log events with the same value of runId in Seq](/img/seq-log-events-same-runId.png)
 
 Coroutine context information is kept for the duration of the current coroutine scope
 and is automatically removed at the end of that scope. Context information is also
@@ -41,6 +41,19 @@ finished and to ensure items are moved between threads.
 ## Asynchronous dispatching of log events
 
 Coroutines provide a simple way to asynchronously dispatch log events to different
-sinks. Klogging [uses channels](../concepts/klogging-process) to process events.
+sinks. Klogging launches new coroutines in a number of places:
 
-**TBC**
+- For dispatching log events to sinks.
+- For receiving log events from event and sink channels.
+- For sending batches of log events to network destinations.
+
+In addition, Klogging [uses channels](../concepts/klogging-process) to process events.
+
+- All log events are [sent into the events channel](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/internal/Emitter.kt#L59)
+  in a coroutine.
+
+- They are read in a different coroutine and dispatched to each matching sink by [sending
+  it into each sink](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/internal/Sink.kt#L70).
+
+- Events are [read from sink channels in batches](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/sending/Batching.kt#L49)
+  in different coroutines.

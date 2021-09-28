@@ -62,6 +62,10 @@ For example, if `userId` has the value `wonti321` then:
 - the message becomes `User wonti321 signed in`; and
 - the log event contains `"userId": "wonti321"`.
 
+The log event displayed in Splunk may look like this:
+
+![Example of structured event message in Splunk](/img/log-info-userId-splunk.png)
+
 ### Exception
 
 To log exception information, include the exception object as the first argument in the function call:
@@ -99,7 +103,7 @@ Likewise, there are functions `isTraceEnabled()`, `isInfoEnabled()` etc.
 
 ### Kotlin lambda
 
-The idiomatic Kotlin way to send a log event that might be expensive is to use a lambda. 
+The idiomatic Kotlin way to send a log event that might be expensive is to use a lambda.
 The lambda is only called if the minimum level check evaluates `true`.
 
 It is simple when logging a string message:
@@ -117,7 +121,7 @@ can call the `e()` function as the return value of the lambda:
     logger.debug {
         val complex = calculateSpecialValueForDebugging()
         val other = extractOtherValueFromSomewhereElse()
-        e("Calculated {complex} and {other}", complex, other) 
+        e("Calculated {complex} and {other}", complex, other)
     }
 ```
 

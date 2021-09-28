@@ -20,3 +20,6 @@ Important properties of an event are:
 | Message     | A string message summarising what happened, that might be constructed from a template. |
 | Stack trace | Details about an exception or error, if one is associate with the event.               |
 | Items       | A map of useful information current at the time of the event.                          |
+
+Each event also has a unique, random ID that is printed by the [internal logger](../internals/internal-logger)
+for diagnostic purposes.

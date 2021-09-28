@@ -33,7 +33,7 @@ This configuration:
 
 - Next declares a logging configuration that applies to loggers with names starting
   with `com.example`. In this configuration, all log events at [severity level](../concepts/levels)
-  `INFO` or greater are [snet](../concepts/sending) to the `stdout` sink.
+  `INFO` or greater are [sent](../concepts/sending) to the `stdout` sink.
 
 ## A more complex example
 
@@ -107,7 +107,7 @@ loggingConfiguration {
 }
 ```
 
-A scenario for appending a configuration is where the code defines a custom [renderer](../concepts/rendering)
+One scenario for appending a configuration is where the code defines a custom [renderer](../concepts/rendering)
 or [sender](../concepts/sending).
 
 ```kotlin

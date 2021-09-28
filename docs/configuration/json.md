@@ -77,9 +77,9 @@ An example of a Splunk sink called `splunk` is:
 }
 ```
 
-:::note
+:::caution
 `splunkServer` takes precedence over `seqServer`, which takes precedence over `sendTo`
-if multiple are present.
+if multiple are present in the same sink.
 :::
 
 :::info

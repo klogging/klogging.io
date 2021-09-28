@@ -18,15 +18,20 @@ import io.klogging.Klogging
 
 class ImportantService : Klogging {
 
-    fun beImportant() {
+    suspend fun beImportant() {
         // This logger has the name "com.example.ImportantService".
         logger.info("Being important")
     }
 }
 ```
 
-Similarly, for non-coroutine classes, the `NoCoLogging` interface has a `logger` property
-that returns a `NoCoLogger` instance.
+:::note
+The `Klogging` functions are all `suspend` functions to be called in coroutine contexts.
+:::
+
+Similarly, for non-coroutine contexts, the `NoCoLogging` interface has a `logger` property
+that returns a `NoCoLogger` instance. `NoCoLogger` has the same functions as `Klogger` but
+they are not `suspend` functions.
 
 :::note
 The `logger` property is not static and its `get()` function is called every time it is

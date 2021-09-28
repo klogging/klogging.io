@@ -4,6 +4,8 @@ sidebar_position: 5
 
 # Klogging internal process
 
+## Overall process
+
 Klogging processes log events through Kotlin [coroutine channels](https://kotlinlang.org/docs/channels.html).
 
 ![Klogging process diagram](/img/klogging-process.svg)
@@ -28,6 +30,16 @@ Notes:
   to emit events into the events channel.
 
 - Each sink has its own channel and processes log events in the order it receives them.
+
+## Log event batching
+
+Log events are [received from sink channels in batches](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/sending/Batching.kt)
+before being sent to sink destinations. Events are batched:
+
+- at least every 10 milliseconds; or
+- at most 100 events.
+
+These values are defaults and can be changed by setting [environment variables](../internals/environment-variables).
 
 ## Log event order
 
