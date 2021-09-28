@@ -45,7 +45,7 @@ loggingConfiguration {
     sink("auditing", splunkHec(
         SplunkEndpoint(
             hecUrl = "https://splunk:8088",
-            hecToken = "3f4d4f4d-e1ed-44e2-b2d7-ba14f2dc19ed",
+            hecToken = System.env("AUDIT_HEC_TOKEN"),
             index = "auditing",
             sourceType = "service_audit",
         )
@@ -161,8 +161,8 @@ Klogging also supports logging directly to a Splunk [HTTP Event Collector
 ```
 
 - `hecUrl` specifies the URL of the Splunk server’s HEC endpoint. It uses HTTPS by default.
-- `hecToken` is the HEC token used by Splunk for these logging events and is a secret
-   that may be passed in via the execution environment.
+- `hecToken` is the HEC token used by Splunk for these logging events. It is a secret
+   that should be passed in via the execution environment.
 - `index` is the Splunk index for the events (default `main`).
 - `sourceType` is the Splunk `sourcetype` value (default `klogging`).
 - `checkCertificate` indicates whether Klogging should check the TLS certificate used by the

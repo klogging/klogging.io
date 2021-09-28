@@ -55,8 +55,8 @@ Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with
 - `splunkServer`: connection details for a [Splunk server](https://www.splunk.com):
   - `hecUrl`: URL of the Splunk server’s HEC endpoint (HTTPS by default).
   - `hecToken`: the HEC token used by Splunk for these logging events. It is a secret
-    that may be passed in via an environment variable.
-  - `index` is the Splunk index for the events (default `main`).
+    that should be passed in via an environment variable.
+  - `index` is the Splunk index for the events set up by a Splunk administrator (default `main`).
   - `sourceType` is the Splunk `sourcetype` value (default `klogging`).
   - `checkCertificate` indicates whether Klogging should check the TLS certificate used by the
     Splunk server (default `true`).
@@ -68,7 +68,7 @@ An example of a Splunk sink called `splunk` is:
   "splunk": {
     "splunkServer": {
       "hecUrl": "https://localhost:8088",
-      "hecToken": "e7f48c58-6a27-44a7-b81a-5f7a0691b0b2",
+      "hecToken": "${SPLUNK_HEC_TOKEN}",
       "index": "main",
       "sourceType": "klogging",
       "checkCertificate": false
@@ -76,10 +76,6 @@ An example of a Splunk sink called `splunk` is:
   }
 }
 ```
-
-:::caution
-Using environment variables in JSON configuration is not yet available.
-:::
 
 :::note
 `splunkServer` takes precedence over `seqServer`, which takes precedence over `sendTo`
