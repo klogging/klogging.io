@@ -59,7 +59,7 @@ Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with
   - `index` is the Splunk index for the events set up by a Splunk administrator (default `main`).
   - `sourceType` is the Splunk `sourcetype` value (default `klogging`).
   - `checkCertificate` indicates whether Klogging should check the TLS certificate used by the
-    Splunk server (default `true`).
+    Splunk server (string: default `true`).
 
 An example of a Splunk sink called `splunk` is:
 
@@ -71,7 +71,7 @@ An example of a Splunk sink called `splunk` is:
       "hecToken": "${SPLUNK_HEC_TOKEN}",
       "index": "main",
       "sourceType": "klogging",
-      "checkCertificate": false
+      "checkCertificate": "false"
     }
   }
 }

@@ -155,7 +155,7 @@ Klogging also supports logging directly to a Splunk [HTTP Event Collector
             hecToken = System.env("SPLUNK_HEC_TOKEN"),
             index = "main",
             sourceType = "klogging",
-            checkCertificate = true,
+            checkCertificate = "true",
         )
     )
 ```
@@ -166,7 +166,7 @@ Klogging also supports logging directly to a Splunk [HTTP Event Collector
 - `index` is the Splunk index for the events (default `main`).
 - `sourceType` is the Splunk `sourcetype` value (default `klogging`).
 - `checkCertificate` indicates whether Klogging should check the TLS certificate used by the
-   Splunk server (default `true`).
+   Splunk server (string: default `"true"`).
 
 :::info
 The `sink` function is not complete and will be enhanced in the future.
