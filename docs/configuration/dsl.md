@@ -92,6 +92,45 @@ Three logging configurations, which together mean:
 
 - Loggers with names starting with `audit` dispatch all log events to sink `auditing`.
 
+## Short-circuit matching with `stopOnMatch`
+
+You can reduce log volumes by short-circuit matching of loggers. For example:
+
+```kotlin
+loggingConfiguration {
+    sink("stdout", RENDER_ANSI, STDOUT)
+    logging {
+        fromLoggerBase("com.example.rest", stopOnMatch = true)
+        fromMinLevel(Level.ERROR) {
+            toSink("stdout")
+        }
+    }
+    logging {
+        fromLoggerBase("com.example")
+        fromMinLevel(Level.DEBUG) {
+            toSink("stdout")
+        }
+    }
+}
+```
+
+This configuration specifies:
+
+- Loggers with names starting with `com.example.rest` log from level `ERROR`.
+- All other loggers with names starting with `com.example` log from level `DEBUG`.
+
+So logging is as follows:
+
+Logger | TRACE | DEBUG | INFO | WARN | ERROR | FATAL
+-------|:-----:|:-----:|:----:|:----:|:-----:|:-----:
+`com.example.rest.RestClient` | | | | | ✅ | ✅
+`com.example.ExampleClass` | | ✅ | ✅ | ✅ | ✅ | ✅
+`com.example.service.HealthService` | | ✅ | ✅ | ✅ | ✅ | ✅
+
+:::info
+The order of `logging` functions determines when matching stops.
+:::
+
 ## DSL reference
 
 ### `loggingConfiguration`
