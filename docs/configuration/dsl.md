@@ -94,7 +94,11 @@ Three logging configurations, which together mean:
 
 ## Short-circuit matching with `stopOnMatch`
 
-You can reduce log volumes by short-circuit matching of loggers. For example:
+You can reduce log volumes and create detailed logging configurations with short-circuit matching of loggers.
+The logger-matching functions take an optional `stopOnMatch` parameter that specifies whether to continue
+matching or to stop.
+
+For example:
 
 ```kotlin
 loggingConfiguration {
@@ -219,7 +223,7 @@ emit any logs.
 
 The following sections explain details.
 
-### `fromLoggerBase` and `exactLogger`
+### `fromLoggerBase`, `exactLogger` and `matchLogger`
 
 These functions specify how to match logger names. For example:
 
@@ -229,13 +233,19 @@ These functions specify how to match logger names. For example:
 - `exactLogger("com.example.services.GlubService")` matches only the logger called
   `com.example.services.GlubService`. No other logger with match.
 
-:::caution
-`exactLogger` takes precedence if both are specified in a `logging` section.
-:::
+- `matchLogger("Stage-[0-2]")` uses a [Kotlin regular expression](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/)
+  pattern that matches loggers `Stage-0`, `Stage-1` and `Stage-2` but not
+  `Stage-3`.
+
+All three functions accept a boolean `stopOnMatch` argument with default value `false`.
 
 :::info
 These functions are optional: if logger names are not specified, all loggers will match.
 This configuration is the equivalent of the root logger in Log4j or Logback.
+:::
+
+:::note
+In the DSL, the last-used function replaces earlier ones.
 :::
 
 ### `fromMinlevel` and `atLevel`

@@ -78,8 +78,9 @@ An example of a Splunk sink called `splunk` is:
 ```
 
 :::caution
-`splunkServer` takes precedence over `seqServer`, which takes precedence over `sendTo`
-if multiple are present in the same sink.
+You should have only one of `splunkServer`, `seqServer` or `sendTo` in a sink. If
+you have more than one, `splunkServer` takes precedence over `seqServer`, which takes
+precedence over `sendTo`.
 :::
 
 :::info
@@ -88,18 +89,23 @@ The `sinks` object is evolving and there will be more options in the future.
 
 ### `logging`
 
-Equivalent to the [logging](dsl#logging) DSL function. Array of objects, each with keys:
+Equivalent to the [logging](dsl#logging) DSL function. Array of objects, each with optional keys:
 
-- `fromLoggerBase` (optional): base name to match logger names.
+- `fromLoggerBase`: base name to match logger names.
 
-- `exactLogger` (optional): exact name of logger to match.
+- `exactLogger`: exact name of logger to match.
+
+- `matchLogger`: a [Kotlin regular expression](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/)
+  pattern used to match logger names.
 
 :::caution
-`exactLogger` takes precedence if both are specified in a `logging` object.
+You should specify only one of these in a `logging` object. If more are specified,
+`matchLogger` takes precedence over `exactLogger`, which takes precedence over
+`fromLoggerBase`.
 :::
 
 :::info
-If you specify neither key, all loggers will match. This configuration is the equivalent of the root logger in
+If you specify no key, all loggers will match. This configuration is the equivalent of the root logger in
 Log4j or Logback.
 :::
 
