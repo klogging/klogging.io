@@ -17,7 +17,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux") {
         exclude(group = "ch.qos.logback")
     }
-    implementation("io.klogging:klogging-spring-boot-starter:0.2.0")
+    implementation("io.klogging:klogging-spring-boot-starter:0.2.1")
     // Other runtime dependencies.
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -50,7 +50,7 @@ Something like this (not tested):
   <dependency>
     <groupId>io.klogging</groupId>
     <artifactId>klogging-spring-boot-starter</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <type>pom</type>
   </dependency>
   <!-- Other runtime dependencies -->
