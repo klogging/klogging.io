@@ -16,12 +16,10 @@ that allows existing programs using SLF4J to switch the framework to Klogging.
 
 ## Setting up
 
-Include these dependencies in your Gradle build file:
+Include this dependency in your Gradle build file:
 
 ```kotlin
-    implementation("io.klogging:klogging-jvm:0.4.1")
-    implementation("io.klogging:slf4j-klogging:0.2.1")
-    implementation("org.slf4j:slf4j-api:1.7.32")
+    implementation("io.klogging:slf4j-klogging:0.2.2")
 ```
 
 In Maven:
@@ -30,18 +28,8 @@ In Maven:
 <dependencies>
   <dependency>
     <groupId>io.klogging</groupId>
-    <artifactId>klogging-jvm</artifactId>
-    <version>0.4.1</version>
-  </dependency>
-  <dependency>
-    <groupId>io.klogging</groupId>
     <artifactId>slf4j-klogging</artifactId>
-    <version>0.2.1</version>
-  </dependency>
-  <dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.7.32</version>
+    <version>0.2.2</version>
   </dependency>
 </dependencies>
 ```
