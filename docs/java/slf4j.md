@@ -14,6 +14,8 @@ SLF4J API.
 Klogging has an [SLF4J binding](https://github.com/klogging/slf4j-klogging)
 that allows existing programs using SLF4J to switch the framework to Klogging.
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.klogging/slf4j-klogging.svg?label=maven%20central)](https://search.maven.org/search?q=g:%22io.klogging%22%20AND%20a:%22slf4j-klogging%22)
+
 ## Setting up
 
 Include this dependency in your Gradle build file:

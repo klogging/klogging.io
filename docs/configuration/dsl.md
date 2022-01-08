@@ -28,8 +28,8 @@ This configuration:
 
 - First declares a [sink](../concepts/sinks) called `stdout` that [renders](../concepts/rendering) each
   [log event](../concepts/log-events) into a [simple string format](built-ins) and
-  [sends](../concepts/sending) it to the standard output stream. Sinks should be
-  configured first, before they are used.
+  [sends](../concepts/sending) it to the standard output stream. Sinks need to be
+  configured first, before they can be used.
 
 - Next declares a logging configuration that applies to loggers with names starting
   with `com.example`. In this configuration, all log events at [severity level](../concepts/levels)
@@ -63,7 +63,7 @@ loggingConfiguration {
     }
     logging {
         exactLogger("com.example.service.FancyService")
-        fromMinLevel(Level.DEBUG) { to Sink("seq") }
+        fromMinLevel(Level.DEBUG) { toSink("seq") }
     }
     logging {
         fromLoggerBase("audit")
