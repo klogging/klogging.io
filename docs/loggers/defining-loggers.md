@@ -29,9 +29,9 @@ class ImportantService : Klogging {
 The `Klogging` functions are all `suspend` functions to be called in coroutine contexts.
 :::
 
-Similarly, for non-coroutine contexts, the `NoCoLogging` interface has a `logger` property
-that returns a `NoCoLogger` instance. `NoCoLogger` has the same functions as `Klogger` but
-they are not `suspend` functions.
+Similarly, for non-coroutine contexts, the `NoCoLogging` interface has a `logger` property that
+returns a `NoCoLogger` instance. `NoCoLogger` has the same functions as `Klogger` but they are
+not `suspend` functions.
 
 :::note
 The `logger` property is not static and its `get()` function is called every time it is
@@ -40,8 +40,8 @@ referenced. You can define a logger directly if performance is important.
 
 ## Define a logger directly
 
-The `logger()` function defines a logger directly by name or by owning class. The following
-two calls to `logger` are equivalent:
+The `logger()` function defines a logger directly by name, by class or by reified type.
+The following calls to `logger` are equivalent:
 
 ```kotlin
 package com.example
@@ -49,22 +49,24 @@ package com.example
 import io.klogging.logger
 
 class BusyService {
+    val loggerByReifiedType = logger<BusyService>()
     val loggerByClass = logger(BusyService::class)
     val loggerByName = logger("com.example.BusyService")
 }
 ```
 
-In fact, both `loggerByClass` and `loggerByName` refer to the same logger instance.
+All three `loggerByReifiedType`, `loggerByClass` and `loggerByName` refer to the same logger
+instance because they have the same name
 
 ## Static reference
 
-For a single reference to a logger that is not looked up every time, define it in the
-companion object of a class:
+For a single reference to a logger that is not looked up every time, define it in the companion
+object of a class:
 
 ```kotlin
 class VeryBusyService {
     companion object {
-        logger = logger(VeryBusyService::class)
+        logger = logger<VeryBusyService>()
     }
 }
 ```

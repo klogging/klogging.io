@@ -96,4 +96,10 @@ A `SendString` instance that prints strings to the standard error stream.
 
 ### DEFAULT_CONSOLE
 
-A sink configuration that renders using `RENDER_SIMPLE` and sends using `STDOUT` to a sink called `console`.
+A sink configuration that renders using `RENDER_SIMPLE` and sends using `STDOUT` to a sink
+called `console`.
+
+### ANSI_CONSOLE
+
+A sink configuration that renders using `RENDER_ANSI` and sends using `STDOUT` to a sink
+called `console`.
