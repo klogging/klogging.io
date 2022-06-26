@@ -52,8 +52,8 @@ Or place the file `klogging.json` in a directory on your application’s classpa
 
 ## Create a logger
 
-To quickly create a `Klogger` instance to log from `suspend` functions, implement the `Klogging` interface
-that defines a `logger` property:
+To quickly create a `Klogger` instance to log from `suspend` functions, implement the `Klogging`
+interface that defines a `logger` property:
 
 ```kotlin
 package com.example
@@ -77,6 +77,32 @@ You will see a log message on your console like this:
 
 ```
 2021-08-10 22:29:30.300509 INFO [main] com.example.ThingDoer : Doing the thing
+```
+
+## I didn’t see any logs!
+
+If you try out Klogging in a simple command-line program you might not see all the log messages you
+expect to see. This example will not show the log message on the console:
+
+```kotlin
+suspend fun main() = coroutineScope {
+    loggingConfiguration { DEFAULT_CONSOLE() }
+    val logger = logger("main")
+    logger.info("Hello, world!")
+}
+```
+
+Klogging works asynchronously and the program completes before log events can be
+sent. In this case you need to add a coroutine delay or thread sleep before the program completes,
+for example:
+
+```kotlin
+suspend fun main() = coroutineScope {
+    loggingConfiguration { DEFAULT_CONSOLE() }
+    val logger = logger("main")
+    logger.info("Hello, world!")
+    delay(50)
+}
 ```
 
 ## Using snapshot builds
