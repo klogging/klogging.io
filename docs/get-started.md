@@ -105,6 +105,13 @@ suspend fun main() = coroutineScope {
 }
 ```
 
+:::info
+Klogging is designed primarily for long-running services and applications.
+
+I don’t know a reliable way to trap application shutdown and ensure all logs are sent before
+shutdown proceeds. [Let me know if you do](mailto:info@klogging.io).
+:::
+
 ## Using snapshot builds
 
 If you want to use the latest snapshot builds, specify these in your `build.gradle.kts`:
