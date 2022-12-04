@@ -62,6 +62,12 @@ Or in Seq log aggregator:
 
 ## Gradle setup
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.klogging/klogging-spring-boot-starter.svg?label=maven%20central)](https://search.maven.org/search?q=g:%22io.klogging%22%20AND%20a:%22klogging-spring-boot-starter%22)
+
+:::info
+Version 0.3.0 supports Spring Boot versions 2.x and 3.x.
+:::
+
 Use a Gradle configuration like this:
 
 ```kotlin
@@ -73,7 +79,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux") {
         exclude(group = "ch.qos.logback")
     }
-    implementation("io.klogging:klogging-spring-boot-starter:0.2.2")
+    implementation("io.klogging:klogging-spring-boot-starter:0.3.0")
     // Other runtime dependencies.
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -108,6 +114,12 @@ above, including `spring-boot-starter-test`.
 :::
 
 ## Maven setup
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.klogging/klogging-spring-boot-starter.svg?label=maven%20central)](https://search.maven.org/search?q=g:%22io.klogging%22%20AND%20a:%22klogging-spring-boot-starter%22)
+
+:::info
+Version 0.3.0 supports Spring Boot versions 2.x and 3.x.
+:::
 
 Something like this:
 
