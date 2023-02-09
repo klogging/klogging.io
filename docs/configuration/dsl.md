@@ -35,6 +35,10 @@ This configuration:
   with `com.example`. In this configuration, all log events at [severity level](../concepts/levels)
   `INFO` or greater are [sent](../concepts/sending) to the `stdout` sink.
 
+:::info
+The `logging` section must follow the `sink` declarations.
+:::
+
 ## A more complex example
 
 ```kotlin
@@ -69,6 +73,8 @@ loggingConfiguration {
         fromLoggerBase("audit")
         toSink("auditing")
     }
+    kloggingMinLevel(DEBUG)
+    minDirectLogLevel(INFO)
 }
 ```
 
@@ -92,11 +98,14 @@ Three logging configurations, which together mean:
 
 - Loggers with names starting with `audit` dispatch all log events to sink `auditing`.
 
+This configuration also sets minimum logging levels [for Klogging’s internal
+logger](#kloggingminlevel) and [for sending log events directly](#mindirectloglevel).
+
 ## Short-circuit matching with `stopOnMatch`
 
-You can reduce log volumes and create detailed logging configurations with short-circuit matching of loggers.
-The logger-matching functions take an optional `stopOnMatch` parameter that specifies whether to continue
-matching or to stop.
+You can reduce log volumes and create detailed logging configurations with short-circuit matching of
+loggers. The logger-matching functions take an optional `stopOnMatch` parameter that specifies
+whether to continue matching or to stop.
 
 For example:
 
@@ -297,3 +306,16 @@ During dispatching, an event is never dispatched to a sink more than once. Given
 
 An event from logger `com.example.nurdling.NurdleController` at level `WARN` is dispatched to `splunk` only once.
 There is no need to disable additivity as in Log4J and Logback.
+
+
+### `kloggingMinLevel()`
+
+`kloggingMinLevel()` sets the level of Klogging’s [internal logger](../internals/internal-logger).
+The default value is `INFO`.
+
+### `minDirectLogLevel()`
+
+`minDirectLogLevel()` specifies the minimum level at which log events are sent direct to sinks
+instead of being sent asynchronously via coroutine channels. The default value is `WARN`.
+
+See [direct logging](../concepts/direct-logging) for details.

@@ -14,9 +14,10 @@ Notes:
 
 - **Filter**: only construct and emit a log event if [specified by Klogger configuration](../internals/level-checking).
 
-- **Emit**: send a log event into the events channel.
+- **Emit**: send a log event into the events channel (or direct).
 
-- **Dispatch**: determine which sinks are to receive a log event and send them into those sink channels.
+- **Dispatch**: determine which sinks are to receive a log event and send them into the
+  corresponding sink channels (or direct).
 
 - **Render**: convert a log event into a representation suitable for a sink.
 
@@ -30,6 +31,9 @@ Notes:
   to emit events into the events channel.
 
 - Each sink has its own channel and processes log events in the order it receives them.
+
+- Dashed lines show how Klogging can [send log events directly to sinks](../concepts/direct-logging)
+  instead of asynchronously via coroutine channels.
 
 ## Log event batching
 
