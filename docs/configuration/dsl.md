@@ -35,7 +35,7 @@ This configuration:
   with `com.example`. In this configuration, all log events at [severity level](../concepts/levels)
   `INFO` or greater are [sent](../concepts/sending) to the `stdout` sink.
 
-:::info
+:::note
 The `logging` section must follow the `sink` declarations.
 :::
 
