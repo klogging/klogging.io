@@ -170,14 +170,6 @@ loggingConfiguration(append = true) {
 }
 ```
 
-### `kloggingMinLogLevel`
-
-This function sets the minimum level used by the [internal logger](../internals/internal-logger)
-to decide whether to emit log messages.
-
-If not specified, the level is that set by the value of [environment variable](../internals/environment-variables)
-`KLOGGING_MIN_LOG_LEVEL`, which will override the built-in default value `INFO`.
-
 ### `sink`
 
 This function configures a named sink with a [renderer](../concepts/rendering) and a
@@ -307,15 +299,22 @@ During dispatching, an event is never dispatched to a sink more than once. Given
 An event from logger `com.example.nurdling.NurdleController` at level `WARN` is dispatched to `splunk` only once.
 There is no need to disable additivity as in Log4J and Logback.
 
-
-### `kloggingMinLevel()`
-
-`kloggingMinLevel()` sets the level of Klogging’s [internal logger](../internals/internal-logger).
-The default value is `INFO`.
-
 ### `minDirectLogLevel()`
 
-`minDirectLogLevel()` specifies the minimum level at which log events are sent direct to sinks
-instead of being sent asynchronously via coroutine channels. The default value is `WARN`.
+This function specifies the minimum level at which log events are sent direct to sinks
+instead of being sent asynchronously via coroutine channels.
+
+If not specified, the level is that set by the value of [environment
+variable](../internals/environment-variables) `KLOGGING_MIN_DIRECT_LOG_LEVEL`, which will override
+the default value `WARN`.
 
 See [direct logging](../concepts/direct-logging) for details.
+
+### `kloggingMinLogLevel()`
+
+This function sets the minimum level used by the [internal logger](../internals/internal-logger)
+to decide whether to emit log messages.
+
+If not specified, the level is that set by the value of [environment
+variable](../internals/environment-variables) `KLOGGING_MIN_LOG_LEVEL`, which will override the
+default value `INFO`.

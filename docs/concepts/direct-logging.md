@@ -31,3 +31,6 @@ In JSON:
   "minDirectLogLevel": "INFO"
 }
 ```
+
+The level can also be set using the [environment
+variable](../internals/environment-variables) `KLOGGING_MIN_DIRECT_LOG_LEVEL`.
