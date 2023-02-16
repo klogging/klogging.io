@@ -46,11 +46,6 @@ In Maven:
 There are two options for including values in messages: SLF4J formatting with placeholders or
 Klogging message templates.
 
-:::caution
-Klogging does not currently support messages containing both SLF4J placeholders and message
-template holes.
-:::
-
 ### SLF4J formatting with placeholders
 
 All existing logging statements with SLF4J formatting will continue to work with Klogging,
@@ -77,6 +72,11 @@ IntelliJ IDEA will highlight message templates in SLF4J logging method calls bec
 they are not the positional `{}` placeholders used by SLF4J.
 
 ![IntelliJ highlight message for message template](../../static/img/slf4j-intellij-message.png)
+:::
+
+:::caution
+Klogging does not currently support messages containing both SLF4J placeholders and message
+template holes.
 :::
 
 ### MDC
