@@ -164,7 +164,7 @@ Something like this:
 
 ## Configure Klogging
 
-Put a `logging.json` file in the `src/main/resources` directory of the project.
+Put a `klogging.json` file in the `src/main/resources` directory of the project.
 
 Here is a simple one for logging to the console.
 
