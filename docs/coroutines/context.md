@@ -5,7 +5,7 @@ sidebar_position: 20
 # Contextual event items
 
 Klogging includes the
-[`LogContext`](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/context/LogContext.kt)
+[`LogContext`](https://dokka.klogging.io/-klogging/io.klogging.context/-log-context/index.html)
 class to hold a map of contextual information in a coroutine context. For example:
 
 ```kotlin
