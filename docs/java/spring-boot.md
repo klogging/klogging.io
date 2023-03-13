@@ -65,7 +65,7 @@ Or in Seq log aggregator:
 [![Maven Central](https://img.shields.io/maven-central/v/io.klogging/klogging-spring-boot-starter.svg?label=maven%20central)](https://search.maven.org/search?q=g:%22io.klogging%22%20AND%20a:%22klogging-spring-boot-starter%22)
 
 :::info
-Version 0.3.0 supports Spring Boot versions 2.x and 3.x.
+Versions 0.3.0 and later supports Spring Boot versions 2.x and 3.x.
 :::
 
 Use a Gradle configuration like this:
