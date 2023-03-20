@@ -14,10 +14,7 @@ SLF4J API.
 Klogging has an [SLF4J binding](https://github.com/klogging/slf4j-klogging)
 that allows existing programs using SLF4J to switch the framework to Klogging.
 
-:::caution
-Please version 0.3.0 of SLF4J binding. The build is broken: Gradle is not assembling the JARs
-correctly.
-:::
+[![Maven Central](https://img.shields.io/maven-central/v/io.klogging/slf4j-klogging.svg?label=maven%20central)](https://search.maven.org/search?q=g:%22io.klogging%22%20AND%20a:%22slf4j-klogging%22)
 
 :::info
 Versions 0.3.0 and later supports SLF4J versions 1.x and 2.x as used by Spring Boot versions
@@ -29,7 +26,7 @@ Versions 0.3.0 and later supports SLF4J versions 1.x and 2.x as used by Spring B
 Include this dependency in your Gradle build file:
 
 ```kotlin
-    implementation("io.klogging:slf4j-klogging:0.3.0")
+    implementation("io.klogging:slf4j-klogging:0.3.3")
 ```
 
 In Maven:
@@ -39,7 +36,7 @@ In Maven:
   <dependency>
     <groupId>io.klogging</groupId>
     <artifactId>slf4j-klogging</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.3</version>
   </dependency>
 </dependencies>
 ```
