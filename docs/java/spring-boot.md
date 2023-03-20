@@ -32,7 +32,7 @@ class HelloController(
 
     @GetMapping("/hello")
     suspend fun hello(): String {
-        return withContext(logContext("runId" to UUID.randomUUID())) {
+        return withLogContext("runId" to UUID.randomUUID()) {
             logger.info("controller")
             "Hello ${service.randomName()}"
         }
