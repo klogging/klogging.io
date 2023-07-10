@@ -90,7 +90,7 @@ dependencies {
 ```
 
 Spring uses [SLF4J](https://www.slf4j.org/) for sending logs and
-bundles [Logback](http://logback.qos.ch/) as the default binding. The `exclude` functions shown here
+bundles [Logback](http://logback.qos.ch/) as the default provider. The `exclude` functions shown here
 are needed to exclude Logback from Spring.
 
 :::note
@@ -99,7 +99,7 @@ If your Spring Boot app fails to start with messages like:
 
 ```
 > Task :bootRun FAILED
-SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Class path contains multiple SLF4J providers.
 ```
 
 and
