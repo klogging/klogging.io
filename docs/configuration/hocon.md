@@ -4,8 +4,8 @@ sidebar_position: 30
 
 # Configuration with HOCON
 
-Klogging can be configured from HOCON files. This example is exactly equivalent to
-the [first DSL example](dsl#a-simple-example):
+Klogging can be configured from [HOCON](https://github.com/lightbend/config/blob/main/HOCON.md)
+files. This example is exactly equivalent to the [first DSL example](dsl#a-simple-example):
 
 ```hocon
 {
@@ -31,7 +31,6 @@ the [first DSL example](dsl#a-simple-example):
   ]
 }
 ```
-
 
 ## Configuration object names
 

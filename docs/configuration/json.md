@@ -32,10 +32,15 @@ the [first DSL example](dsl#a-simple-example):
 }
 ```
 
-:::note
-An earlier version used the key `dispatchTo` instead of `sendTo`. Use of `dispatchTo` is deprecated;
-a warning will be printed to the console if it is found in JSON configuration.
-:::
+## Locating configuration files
+
+Klogging looks for configuration files as follows:
+
+1. If the environment variable `KLOGGING_CONFIG_PATH` exists, load the file at that absolute path if
+   it exists.
+2. Search the classpath for the file `klogging.json` first, and `klogging.conf`.
+
+If a configuration file is found it is read as JSON or HOCON.
 
 ## Configuration object names
 
