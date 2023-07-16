@@ -26,7 +26,8 @@ loggingConfiguration {
 
 This configuration:
 
-- First declares a [sink](../concepts/sinks) called `stdout` that [renders](../concepts/rendering) each
+- First declares a [sink](../concepts/sinks) called `stdout` that [renders](../concepts/rendering)
+  each
   [log event](../concepts/log-events) into a [simple string format](built-ins) and
   [sends](../concepts/sending) it to the standard output stream. Sinks need to be
   configured first, before they can be used.
@@ -99,7 +100,7 @@ Three logging configurations, which together mean:
 - Loggers with names starting with `audit` dispatch all log events to sink `auditing`.
 
 This configuration also sets minimum logging levels [for Klogging’s internal
-logger](#kloggingminlevel) and [for sending log events directly](#mindirectloglevel).
+logger](#kloggingminloglevel) and [for sending log events directly](#mindirectloglevel).
 
 ## Short-circuit matching with `stopOnMatch`
 
@@ -134,11 +135,11 @@ This configuration specifies:
 
 So logging is as follows:
 
-Logger | TRACE | DEBUG | INFO | WARN | ERROR | FATAL
--------|:-----:|:-----:|:----:|:----:|:-----:|:-----:
-`com.example.rest.RestClient` | | | | | ✅ | ✅
-`com.example.ExampleClass` | | ✅ | ✅ | ✅ | ✅ | ✅
-`com.example.service.HealthService` | | ✅ | ✅ | ✅ | ✅ | ✅
+| Logger                              | TRACE | DEBUG | INFO | WARN | ERROR | FATAL |
+|-------------------------------------|:-----:|:-----:|:----:|:----:|:-----:|:-----:|
+| `com.example.rest.RestClient`       |       |       |      |      |   ✅   |   ✅   |
+| `com.example.ExampleClass`          |       |   ✅   |  ✅   |  ✅   |   ✅   |   ✅   |
+| `com.example.service.HealthService` |       |   ✅   |  ✅   |  ✅   |   ✅   |   ✅   |
 
 :::info
 The order of `logging` functions determines when matching stops.
@@ -148,7 +149,8 @@ The order of `logging` functions determines when matching stops.
 
 ### `loggingConfiguration`
 
-This function creates a configuration for the running program. It makes sense to call this as early as
+This function creates a configuration for the running program. It makes sense to call this as early
+as
 possible in program startup. It uses specifications in the supplied lambda.
 
 By default, the configuration replaces any existing one:
@@ -159,7 +161,8 @@ loggingConfiguration {
 }
 ```
 
-One scenario for appending a configuration is where the code defines a custom [renderer](../concepts/rendering)
+One scenario for appending a configuration is where the code defines a
+custom [renderer](../concepts/rendering)
 or [sender](../concepts/sending).
 
 ```kotlin
@@ -185,7 +188,7 @@ This example configures two sinks:
 - The `stdout` sink renders events with the built-in renderer `RENDER_SIMPLE` and dispatches them
   to the standard output using the built-in `STDOUT` dispatcher.
 - The `seq` sink uses the built-in `seq` function for rendering events in
-  [CLEF](https://docs.datalust.co/docs/posting-raw-events#compact-json-format) compact JSON format and
+  [CLEF](https://clef-json.org/) compact JSON format and
   dispatching them to a [Seq server](https://datalust.co/seq) running locally.
 
 Klogging also supports logging directly to a Splunk [HTTP Event Collector
@@ -206,11 +209,11 @@ Klogging also supports logging directly to a Splunk [HTTP Event Collector
 
 - `hecUrl` specifies the URL of the Splunk server’s HEC endpoint. It uses HTTPS by default.
 - `hecToken` is the HEC token used by Splunk for these logging events. It is a secret
-   that should be passed in via the execution environment.
+  that should be passed in via the execution environment.
 - `index` is the Splunk index for the events (default `main`).
 - `sourceType` is the Splunk `sourcetype` value (default `klogging`).
 - `checkCertificate` indicates whether Klogging should check the TLS certificate used by the
-   Splunk server (string: default `"true"`).
+  Splunk server (string: default `"true"`).
 
 :::info
 The `sink` function is not complete and will be enhanced in the future.
@@ -234,7 +237,8 @@ These functions specify how to match logger names. For example:
 - `exactLogger("com.example.services.GlubService")` matches only the logger called
   `com.example.services.GlubService`. No other logger with match.
 
-- `matchLogger("Stage-[0-2]")` uses a [Kotlin regular expression](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/)
+- `matchLogger("Stage-[0-2]")` uses
+  a [Kotlin regular expression](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/)
   pattern that matches loggers `Stage-0`, `Stage-1` and `Stage-2` but not
   `Stage-3`.
 
@@ -267,7 +271,8 @@ events for the specified loggers.
 
 ### `toSink`
 
-This function specifies the name of a sink to dispatch events to. It can be called mulitple times for
+This function specifies the name of a sink to dispatch events to. It can be called mulitple times
+for
 a level specification. The sink must have been defined previously by name, otherwise a short warning
 is written to the console and the configuration is ignored.
 
@@ -296,7 +301,8 @@ During dispatching, an event is never dispatched to a sink more than once. Given
     }
 ```
 
-An event from logger `com.example.nurdling.NurdleController` at level `WARN` is dispatched to `splunk` only once.
+An event from logger `com.example.nurdling.NurdleController` at level `WARN` is dispatched
+to `splunk` only once.
 There is no need to disable additivity as in Log4J and Logback.
 
 ### `minDirectLogLevel()`

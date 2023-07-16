@@ -41,9 +41,8 @@ logging levels with colour highlights, for example:
 ### RENDER_CLEF
 
 A `RenderString` instance that converts log events into JSON using
-[Compact Log Event Format](https://docs.datalust.co/docs/posting-raw-events#compact-json-format) for
-dispatching to a [Seq server](https://datalust.co/seq).
-An example is:
+[Compact Log Event Format](https://clef-json.org/) for dispatching to a
+[Seq server](https://datalust.co/seq). An example is:
 
 ```json
 {
