@@ -6,6 +6,9 @@ either:
 - in code using the [Configuration domain-specific language](dsl.md)
 - using from a [JSON](json.md) or [HOCON](hocon.md) configuration file.
 
+You can also override some configuration by setting [Environment
+variables](../internals/environment-variables.md).
+
 ## How Klogging finds configuration files
 
 Klogging follows these steps for finding configuration files:
