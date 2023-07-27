@@ -49,7 +49,7 @@ If a configuration file is found it is read as JSON or HOCON.
 Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with keys:
 
 - `renderWith`: name of a [built-in renderer](built-ins#rendering). Current values are `RENDER_SIMPLE`,
-  `RENDER_ANSI`, `RENDER_CLEF` and `RENDER_GELF`.
+  `RENDER_ISO8601`, `RENDER_ANSI`, `RENDER_CLEF` and `RENDER_GELF`.
 
 - `sendTo`: name of a [built-in sender](built-ins#sending). Current values are `STDOUT` and
   `STDERR`.
@@ -119,8 +119,8 @@ Log4j or Logback.
 Array of objects, each with keys:
 
 - `fromMinLevel`: Name of the minimum level for log events to be emitted. For example, if the value is `INFO` then
-  events at severity `INFO`, `ERROR` and
-  `FATAL` will be emitted. Equivalent to the [fromMinLevel](dsl#fromminlevel-and-atlevel) DSL function.
+  events at severity `INFO`, `ERROR` and `FATAL` will be emitted. Equivalent to the
+  [fromMinLevel](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
 
 - `atLevel`: Name of the exact level at which log events will be emitted. Equivalent to
   the [atLevel](dsl#fromminlevel-and-atlevel) DSL function.

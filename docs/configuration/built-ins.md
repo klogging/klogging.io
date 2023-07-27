@@ -24,6 +24,22 @@ console. Examples are:
   the line in curly braces.
 - If there is a stack trace as part of the log event, it is printed starting on the next line.
 
+### RENDER_ISO8601
+
+A `RenderString` instance that renders log events as string messages like `RENDER_SIMPLE` but with
+timestamps in ISO8601 format. Examples are:
+
+```
+2023-07-27T22:46:58.363519Z INFO [DefaultDispatcher-worker-4+Playpen] io.klogging.example.KloggerPlaypen : << 1 : {app=Playpen, run=2235f5a2-7920-4446-9fa3-bd127493772e, Counter=1}
+2023-07-27T22:46:58.365417Z INFO [DefaultDispatcher-worker-4+Playpen] io.klogging.example.KloggerPlaypen : >> 2 : {app=Playpen, run=2235f5a2-7920-4446-9fa3-bd127493772e, Counter=2}
+2023-07-27T22:46:58.365559Z INFO [DefaultDispatcher-worker-4+Playpen] io.klogging.example.KloggerPlaypen : Event 1 at 2023-07-28T08:46:58.365536 : {app=Playpen, run=2235f5a2-7920-4446-9fa3-bd127493772e, Counter=2, Iteration=1, RightNow=2023-07-28T08:46:58.365536}
+```
+
+- The timestamp is an ISO8601 timestamp in UTC.
+- If there are `items` as part of the [log event](../concepts/log-events), the keys and values are printed at the end of
+  the line in curly braces.
+- If there is a stack trace as part of the log event, it is printed starting on the next line.
+
 ### RENDER_ANSI
 
 A `RenderString` instance that renders log events as string messages for a console like `RENDER_SIMPLE` but with
