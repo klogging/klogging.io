@@ -253,14 +253,20 @@ This configuration is the equivalent of the root logger in Log4j or Logback.
 In the DSL, the last-used function replaces earlier ones.
 :::
 
-### `fromMinlevel` and `atLevel`
+### `fromMinlevel`, `toMaxLevel`, `atLevel` and `inLevelRange`
 
 These functions specify the levels at which to dispatch log events. For example:
 
-- `fromMinLevel(Level.INFO)` will enable all events at `INFO` level and above (i.e. more severe:
+- `fromMinLevel(Level.INFO)` enables all events at `INFO` level and above (i.e. more severe:
   `WARN`, `ERROR` and `FATAL`) to be dispatched.
 
+- `toMaxLevel(Level.INFO)` enables all events up to `INFO` level and below (i.e. less
+  severe: `TRACE` and `DEBUG`) to be dispatched.
+
 - `atLevel(Level.WARN)` enables only events at `WARN` level to be dispatched by matching loggers.
+
+- `inLevelRange(Level.DEBUG, Level.WARN)` enables all events in the range of levels from `DEBUG`
+  to `WARN`, inclusive.
 
 The functions accept a lambda to specify which sinks to dispatch to.
 
