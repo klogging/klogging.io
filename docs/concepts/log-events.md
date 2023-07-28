@@ -5,7 +5,7 @@ sidebar_position: 10
 # Log Events
 
 A **log event** (modelled by
-[`LogEvent`](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/events/LogEvent.kt))
+[`LogEvent`](https://github.com/klogging/klogging/blob/main/klogging/src/commonMain/kotlin/io/klogging/events/LogEvent.kt))
 contains information at a point in time and the state of a running system.
 
 Important properties of an event are:

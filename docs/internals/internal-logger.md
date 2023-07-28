@@ -37,7 +37,7 @@ the ‘global’ variable `kloggingMinLogLevel`.
 
 ## Under the hood
 
-[The code](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/internal/InternalLogging.kt)
+[The code](https://github.com/klogging/klogging/blob/main/klogging/src/commonMain/kotlin/io/klogging/internal/InternalLogging.kt)
 constructs log events, renders them as string messages using a specific renderer and sends
 them to the console.
 

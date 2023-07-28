@@ -37,7 +37,7 @@ Notes:
 
 ## Log event batching
 
-Log events are [received from sink channels in batches](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/sending/Batching.kt)
+Log events are [received from sink channels in batches](https://github.com/klogging/klogging/blob/main/klogging/src/commonMain/kotlin/io/klogging/sending/Batching.kt)
 before being sent to sink destinations. Events are batched:
 
 - at least every 10 milliseconds; or
@@ -53,13 +53,13 @@ new coroutines unless necessary.
 
 New coroutines are launched in these places:
 
-- Creating the loop in [Emitter.kt](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/internal/Emitter.kt#L41) that reads from the events channel and calls `dispatchEvent`.
+- Creating the loop in [Emitter.kt](https://github.com/klogging/klogging/blob/main/klogging/src/commonMain/kotlin/io/klogging/internal/Emitter.kt#L41) that reads from the events channel and calls `dispatchEvent`.
 
 - Emitting log events into the events channel from
-  [NoCoLoggerImpl.kt](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/impl/NoCoLoggerImpl.kt#L43).
+  [NoCoLoggerImpl.kt](https://github.com/klogging/klogging/blob/main/klogging/src/commonMain/kotlin/io/klogging/impl/NoCoLoggerImpl.kt#L43).
   A new coroutine is launched for every log event.
 
-- Creating the loop in [Sink.kt](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/internal/Sink.kt#L41)
+- Creating the loop in [Sink.kt](https://github.com/klogging/klogging/blob/main/klogging/src/commonMain/kotlin/io/klogging/internal/Sink.kt#L41)
   that reads from the channel for each sink.
 
 Sinks may launch coroutines in order to send log events to their destinations.

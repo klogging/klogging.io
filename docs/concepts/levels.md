@@ -18,7 +18,7 @@ Klogging has 6 levels of logging severity with these names and general meanings:
 | FATAL | A serious error condition has occurred that has caused the program to stop. |
 
 These levels are specified by the
-[`Level`](https://github.com/klogging/klogging/blob/main/src/commonMain/kotlin/io/klogging/Level.kt)
+[`Level`](https://github.com/klogging/klogging/blob/main/klogging/src/commonMain/kotlin/io/klogging/Level.kt)
 enum.
 
 ## Logger functions and levels
