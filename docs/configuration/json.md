@@ -118,12 +118,19 @@ Log4j or Logback.
 
 Array of objects, each with keys:
 
-- `fromMinLevel`: Name of the minimum level for log events to be emitted. For example, if the value is `INFO` then
-  events at severity `INFO`, `ERROR` and `FATAL` will be emitted. Equivalent to the
-  [fromMinLevel](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
+- `fromMinLevel`: Name of the minimum level for log events to be emitted. For example, if the value
+  is `INFO` then events at severity `INFO`, `ERROR` and `FATAL` will be emitted. Equivalent to
+  the [fromMinLevel](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
+
+- `toMaxLevel`: Name of the maximum level for log events to be emitted. For example, if the value
+  is `INFO` then events at severity `TRACE`, `DEBUG` and `INFO` will be emitted. Equivalent to
+  the [toMaxLevel](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
+
+- You can combine `fromMinLevel` and `toMaxLevel` values to set an inclusive range of levels.
+  Equivalent to the [inLevelRange](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
 
 - `atLevel`: Name of the exact level at which log events will be emitted. Equivalent to
-  the [atLevel](dsl#fromminlevel-and-atlevel) DSL function.
+  the [atLevel](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
 
 - `toSinks`: Array of sink names where events will be sent. If it does not match a key of the `sinks` object, a
   warning is written to the console and the configuration is ignored.
