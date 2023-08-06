@@ -1,12 +1,8 @@
 ---
-sidebar_position: 50
+sidebar_position: 10
 ---
 
-# Context Items
-
-Much of the power of Klogging is in the way you can include context information in log events.
-
-## Base Context
+# Base Context
 
 You can specify items to add to every Klogging log event in your application.
 Examples might be application name or a build identifier.
