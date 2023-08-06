@@ -20,7 +20,7 @@ log event context items:
 
 ```kotlin
     Context.addItemExtractor {
-      MDC.getCopyOfContextMap() ?: mapOf()
+        MDC.getCopyOfContextMap() ?: mapOf()
     }
 ```
 
