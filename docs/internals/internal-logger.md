@@ -4,26 +4,19 @@ sidebar_position: 30
 
 # Internal logger
 
-Klogging has an internal logger that emits string messages to the console.
+Klogging has an internal logger that emits string messages to the console. Its purpose is for
+diagnostics on Klogging itself.
 
 ## Usage
 
-The core function `log(String, Level, String, Exception?)` is called by utility functions for five levels:
+Klogging uses its internal logger in these ways:
 
-- `trace("Sink", "Forwarding event ${event.id} to sink $name")`
-
-- `debug("Emitter", "Starting events channel")`
-
-- `info("Configuration", "Setting configuration using the DSL with append=$append")`
-
-- `warn("JsonConfiguration", "Exception parsing JSON", ex)`
-
-- `error("Sink", "A serious error has occurred", ex)`
-
-:::note
-[Message templates](../concepts/message-templates) are not currently supported by the internal
-logger.
-:::
+| Level | Typical use                                        |
+|-------|----------------------------------------------------|
+| TRACE | Detailed tracing of log events through Klogging    |
+| DEBUG | Lifecycle events of Klogging components            |
+| INFO  | Klogging has read configuration from DSL or file   |
+| WARN  | There was an error interpreting some configuration |
 
 ## Minimum logging level
 
@@ -35,7 +28,7 @@ the ‘global’ variable `kloggingMinLogLevel`.
 - It can be changed by the [environment variable](../internals/environment-variables)
   `KLOGGING_MIN_LOG_LEVEL`
 
-## Under the hood
+## Logging output
 
 [The code](https://github.com/klogging/klogging/blob/main/klogging/src/commonMain/kotlin/io/klogging/internal/InternalLogging.kt)
 constructs log events, renders them as string messages using a specific renderer and sends
