@@ -6,7 +6,8 @@ sidebar_position: 5
 
 ## Overall process
 
-Klogging processes log events through Kotlin [coroutine channels](https://kotlinlang.org/docs/channels.html).
+Klogging processes most log events through Kotlin [coroutine channels](https://kotlinlang.org/docs/channels.html)
+to take logging away from the main threads of program execution as soon as possible.
 
 ![Klogging process diagram](/img/klogging-process.svg)
 
@@ -32,7 +33,7 @@ Notes:
 
 - Each sink has its own channel and processes log events in the order it receives them.
 
-- Dashed lines show how Klogging can [send log events directly to sinks](../concepts/direct-logging)
+- **Direct**: dashed lines show how Klogging can [send log events directly to sinks](../concepts/direct-logging)
   instead of asynchronously via coroutine channels.
 
 ## Log event batching
