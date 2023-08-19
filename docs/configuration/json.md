@@ -57,6 +57,12 @@ Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with
 - `seqServer`: URL of a [Seq server](https://datalust.co) where events are to be dispatched. By default,
   the RENDER_CLEF renderer is used.
 
+- `apiKey`: a Seq API key. It is a secret that should be passed in via an environment variable, for
+  example: `"apiKey": "${SEQ_API_KEY}"`
+
+- `checkCertificate`: a boolean value (default `true`) that specifies if the TLS certificate used by
+  a secure `seqServer` URL should be checked.
+
 - `splunkServer`: connection details for a [Splunk server](https://www.splunk.com):
   - `hecUrl`: URL of the Splunk server’s HEC endpoint (HTTPS by default).
   - `hecToken`: the HEC token used by Splunk for these logging events. It is a secret

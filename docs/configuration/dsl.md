@@ -46,11 +46,14 @@ The `logging` section must follow the `sink` declarations.
 loggingConfiguration {
     sink("stdout", RENDER_SIMPLE, STDOUT)
     sink("stderr", RENDER_SIMPLE, STDERR)
-    sink("seq", seq(server = "http://localhost:5341"))
+    sink("seq", seq(
+        url = "http://seq-server:5341",
+        apiKey = getenv("SEQ_API_KEY")
+    ))
     sink("auditing", splunkHec(
         SplunkEndpoint(
-            hecUrl = "https://splunk:8088",
-            hecToken = System.env("AUDIT_HEC_TOKEN"),
+            hecUrl = "https://splunk-server:8088",
+            hecToken = getenv("AUDIT_HEC_TOKEN")!!,
             index = "auditing",
             sourceType = "service_audit",
         )
@@ -83,7 +86,7 @@ This example has four sinks:
 
 - `stdout` to the standard output stream;
 - `stderr` to the standard error stream;
-- `seq` to a local [Seq log aggregator](https://datalust.co/seq) server; and
+- `seq` to a [Seq log aggregator](https://datalust.co/seq) server; and
 - `auditing` to a [Splunk](https://www.splunk.com) server.
 
 Three logging configurations, which together mean:
@@ -182,14 +185,25 @@ This example configures two sinks:
 
 ```kotlin
     sink("stdout", RENDER_SIMPLE, STDOUT)
-    sink("seq", seq("http://localhost:5341"))
+    sink(
+        "seq",
+        seq(
+            url = "https://seq.example.com:45341",
+            apiToken = getenv("SEQ_API_TOKEN")!!,
+            checkCertificate = false,
+        )
+    )
 ```
 
 - The `stdout` sink renders events with the built-in renderer `RENDER_SIMPLE` and dispatches them
   to the standard output using the built-in `STDOUT` dispatcher.
 - The `seq` sink uses the built-in `seq` function for rendering events in
   [CLEF](https://clef-json.org/) compact JSON format and
-  dispatching them to a [Seq server](https://datalust.co/seq) running locally.
+  dispatching them to a [Seq server](https://datalust.co/seq):
+  - The server endpoint is `https://seq.example.com:45341`
+  - Get the API token from the running environment key `SEQ_API_TOKEN` (a secret that should be
+    passed in via the execution environment)
+  - Trust the TLS certificate used by the Seq server
 
 Klogging also supports logging directly to a Splunk [HTTP Event Collector
 (HEC)](https://docs.splunk.com/Documentation/Splunk/8.2.2/Data/HECExamples), specified using the
@@ -199,7 +213,7 @@ Klogging also supports logging directly to a Splunk [HTTP Event Collector
     splunkHec(
         SplunkEndpoint(
             hecUrl = "https://splunk:8088",
-            hecToken = System.env("SPLUNK_HEC_TOKEN"),
+            hecToken = getenv("SPLUNK_HEC_TOKEN")!!,
             index = "main",
             sourceType = "klogging",
             checkCertificate = "true",
