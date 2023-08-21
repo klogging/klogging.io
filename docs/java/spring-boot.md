@@ -10,6 +10,8 @@ You can set Klogging as the logging framework of a Spring Boot application.
 The [Klogging spring boot starter](https://github.com/klogging/klogging-spring-boot-starter)
 makes it simple. See [Gradle setup](#gradle-setup) below for details.
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.klogging/klogging-spring-boot-starter.svg?label=maven%20central)](https://central.sonatype.com/search?smo=true&q=io.klogging%3Aklogging-spring-boot-starter)
+
 ## Using Klogging in Spring Boot
 
 Firstly, all Spring libraries log via SLF4J and log events will be processed by Klogging.
@@ -79,7 +81,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux") {
         exclude(group = "ch.qos.logback")
     }
-    implementation("io.klogging:klogging-spring-boot-starter:0.5.4")
+    implementation("io.klogging:klogging-spring-boot-starter:0.5.5")
     // Other runtime dependencies.
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -90,7 +92,8 @@ dependencies {
 ```
 
 Spring uses [SLF4J](https://www.slf4j.org/) for sending logs and
-bundles [Logback](http://logback.qos.ch/) as the default provider. The `exclude` functions shown here
+bundles [Logback](http://logback.qos.ch/) as the default provider. The `exclude` functions shown
+here
 are needed to exclude Logback from Spring.
 
 :::note
@@ -124,6 +127,7 @@ Version 0.3.0 supports Spring Boot versions 2.x and 3.x.
 Something like this:
 
 ```xml
+
 <dependencies>
   <dependency>
     <groupId>org.springframework.boot</groupId>
