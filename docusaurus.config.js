@@ -95,6 +95,11 @@ module.exports = {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
+    algolia: {
+      appId: "J62BLWP5Z6",
+      apiKey: "6b12ec4662942998a33bd7a3090dcfd3",
+      indexName: "klogging",
+    }
   },
   presets: [
     [
