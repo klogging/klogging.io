@@ -53,9 +53,7 @@ loggingConfiguration {
     sink("auditing", splunkHec(
         SplunkEndpoint(
             hecUrl = "https://splunk-server:8088",
-            hecToken = getenv("AUDIT_HEC_TOKEN")!!,
-            index = "auditing",
-            sourceType = "service_audit",
+            hecToken = getenv("AUDIT_HEC_TOKEN")!!
         )
     ))
     logging {
@@ -206,7 +204,7 @@ This example configures two sinks:
   - Trust the TLS certificate used by the Seq server
 
 Klogging also supports logging directly to a Splunk [HTTP Event Collector
-(HEC)](https://docs.splunk.com/Documentation/Splunk/8.2.2/Data/HECExamples), specified using the
+(HEC)](https://docs.splunk.com/Documentation/Splunk/9.1.0/Data/HECExamples), specified using the
 `splunkHec` function:
 
 ```kotlin
@@ -214,8 +212,7 @@ Klogging also supports logging directly to a Splunk [HTTP Event Collector
         SplunkEndpoint(
             hecUrl = "https://splunk:8088",
             hecToken = getenv("SPLUNK_HEC_TOKEN")!!,
-            index = "main",
-            sourceType = "klogging",
+            source = "MyApplication",
             checkCertificate = "true",
         )
     )
@@ -224,8 +221,12 @@ Klogging also supports logging directly to a Splunk [HTTP Event Collector
 - `hecUrl` specifies the URL of the Splunk server’s HEC endpoint. It uses HTTPS by default.
 - `hecToken` is the HEC token used by Splunk for these logging events. It is a secret
   that should be passed in via the execution environment.
-- `index` is the Splunk index for the events (default `main`).
-- `sourceType` is the Splunk `sourcetype` value (default `klogging`).
+- `index` is the Splunk index for the events (optional). If set, it must be a value configured
+  in Splunk. If not set, Splunk will use the default index configured for the HEC token.
+- `sourceType` is the Splunk `sourcetype` value (optional). If not set, Splunk will use
+  `httpevent` or a value configured for the HEC token.
+- `source` is the Splunk `source` value, typically the name of an application (optional).
+  If not set, Splunk will use a name configured with the HEC token.
 - `checkCertificate` indicates whether Klogging should check the TLS certificate used by the
   Splunk server (string: default `"true"`).
 

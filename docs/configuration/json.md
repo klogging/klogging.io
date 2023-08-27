@@ -63,14 +63,18 @@ Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with
 - `checkCertificate`: a boolean value (default `true`) that specifies if the TLS certificate used by
   a secure `seqServer` URL should be checked.
 
-- `splunkServer`: connection details for a [Splunk server](https://www.splunk.com):
-  - `hecUrl`: URL of the Splunk server’s HEC endpoint (HTTPS by default).
-  - `hecToken`: the HEC token used by Splunk for these logging events. It is a secret
-    that should be passed in via an environment variable.
-  - `index` is the Splunk index for the events set up by a Splunk administrator (default `main`).
-  - `sourceType` is the Splunk `sourcetype` value (default `klogging`).
+- `splunkServer`: connection details for a [Splunk HEC endpoint](https://www.splunk.com):
+  - `hecUrl` specifies the URL of the Splunk server’s HEC endpoint. It uses HTTPS by default.
+  - `hecToken` is the HEC token used by Splunk for these logging events. It is a secret
+    that should be passed in via the execution environment.
+  - `index` is the Splunk index for the events (optional). If set, it must be a value configured
+    in Splunk. If not set, Splunk will use the default index configured for the HEC token.
+  - `sourceType` is the Splunk `sourcetype` value (optional). If not set, Splunk will use
+    `httpevent` or a value configured for the HEC token.
+  - `source` is the Splunk `source` value, typically the name of an application (optional).
+    If not set, Splunk will use a name configured with the HEC token.
   - `checkCertificate` indicates whether Klogging should check the TLS certificate used by the
-    Splunk server (string: default `true`).
+    Splunk server (string: default `"true"`).
 
 An example of a Splunk sink called `splunk` is:
 
@@ -80,8 +84,7 @@ An example of a Splunk sink called `splunk` is:
     "splunkServer": {
       "hecUrl": "https://localhost:8088",
       "hecToken": "${SPLUNK_HEC_TOKEN}",
-      "index": "main",
-      "sourceType": "klogging",
+      "source": "MyApplication",
       "checkCertificate": "false"
     }
   }
