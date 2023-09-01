@@ -13,7 +13,7 @@ Specify the adapter dependency in Gradle, for example:
 ```kotlin
 dependencies {
     implementation("com.hexagonkt:http_server_jetty:3.0.1")
-    implementation("io.klogging:hexagonkt-klogging-adapter:0.5.5")
+    implementation("io.klogging:hexagonkt-klogging-adapter:0.5.6")
 
     // etc.
 }
@@ -32,7 +32,7 @@ Or in Maven, for example:
   <dependency>
     <groupId>io.klogging</groupId>
     <artifactId>hexagonkt-klogging-adapter</artifactId>
-    <version>0.5.5</version>
+    <version>0.5.6</version>
   </dependency>
   <!-- etc. -->
 </dependencies>
