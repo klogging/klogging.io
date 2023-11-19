@@ -8,6 +8,11 @@ Klogging has a partial implementation of [message templates](https://messagetemp
 to create structured log events.
 
 :::note
-Message templates are partially implemented so far. It is planned to implement the standard
-more completely.
+Message templates are partially implemented so far. Not implemented are:
+
+- double braces (`{{`) to escape them
+- numeric property names (e.g. `{0}`)
+- `@` structure capturing or `$` stringification operators
+
+It is planned to implement more of the standard in the future.
 :::
