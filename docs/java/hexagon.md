@@ -6,14 +6,20 @@ sidebar_position: 40
 
 Klogging has a logging adapter for the [Hexagon microservices toolkit](https://hexagonkt.com/).
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.klogging/slf4j-klogging.svg?label=maven%20central)](https://search.maven.org/search?q=g:%22io.klogging%22%20AND%20a:%22slf4j-klogging%22)
+
+:::info
+Klogging supports Hexagon toolkit versions 3.4.3 and above, which requires JVM 17.
+:::
+
 ## Specify dependency
 
 Specify the adapter dependency in Gradle, for example:
 
 ```kotlin
 dependencies {
-    implementation("com.hexagonkt:http_server_jetty:3.0.1")
-    implementation("io.klogging:hexagonkt-klogging-adapter:0.5.6")
+    implementation("com.hexagonkt:http_server_jetty:3.4.3")
+    implementation("io.klogging:hexagonkt-klogging-adapter:0.5.7")
 
     // etc.
 }
@@ -27,12 +33,12 @@ Or in Maven, for example:
   <dependency>
     <groupId>com.hexagonkt</groupId>
     <artifactId>http_server_jetty</artifactId>
-    <version>3.0.1</version>
+    <version>3.4.3</version>
   </dependency>
   <dependency>
     <groupId>io.klogging</groupId>
     <artifactId>hexagonkt-klogging-adapter</artifactId>
-    <version>0.5.6</version>
+    <version>0.5.7</version>
   </dependency>
   <!-- etc. -->
 </dependencies>

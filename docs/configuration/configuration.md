@@ -9,6 +9,11 @@ either:
 You can also override some configuration by setting [Environment
 variables](../internals/environment-variables.md).
 
+## How Klogging loads configuration
+
+Klogging does not load the initial configuration until it is needed, when a logger is first
+declared.
+
 ## How Klogging finds configuration files
 
 Klogging follows these steps for finding configuration files:

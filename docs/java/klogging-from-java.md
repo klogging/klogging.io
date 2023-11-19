@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# Using Klogging directly
+# Using Klogging directly from Java
 
 Klogging can be used directly by Java programs, using a `LoggerFactory`:
 

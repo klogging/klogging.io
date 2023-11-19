@@ -18,7 +18,7 @@ The simplest way to configure Klogging is to replace the Logback dependency with
 dependencies {
     // Ktor engine and plugin dependencies
     // implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.klogging:slf4j-klogging:0.5.6")
+    implementation("io.klogging:slf4j-klogging:0.5.7")
 
     // Other dependencies
 }
