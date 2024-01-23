@@ -112,9 +112,9 @@ A `SendString` instance that prints strings to the standard error stream.
 ### DEFAULT_CONSOLE
 
 A sink configuration that renders using `RENDER_SIMPLE` and sends using `STDOUT` to a sink
-called `console`.
+called `console`. It emits log events with severity `INFO` and greater.
 
 ### ANSI_CONSOLE
 
 A sink configuration that renders using `RENDER_ANSI` and sends using `STDOUT` to a sink
-called `console`.
+called `console`. It emits log events with severity `INFO` and greater.
