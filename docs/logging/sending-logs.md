@@ -81,7 +81,7 @@ A simple example:
 logger.info("Retrieved values from services", mapOf(
     "serviceOneCount" to serviceOneResult.count,
     "serviceTwoCount" to serviceTwoResult.count,
-)
+))
 ```
 
 The resulting log event may look like something like this:
