@@ -12,7 +12,7 @@ For example, given this call with context items immediately:
 logger.info("Retrieved values from services", mapOf(
     "serviceOneCount" to serviceOneResult.count,
     "serviceTwoCount" to serviceTwoResult.count,
-)
+))
 ```
 
 The resulting event may look like something like this:
