@@ -7,7 +7,9 @@ sidebar_position: 10
 You can specify items to add to every Klogging log event in your application.
 Examples might be application name or a build identifier.
 
-Specify them using the `Context` object, for example:
+## Using the `Context` object
+
+You can specify base context items using the `Context` object, for example:
 
 ```kotlin
 const val APP_NAME_KEY = "appName"
@@ -32,8 +34,24 @@ Log events include those values, for example:
   "appName": "analysis-service",
   "buildNumber": "2.4.0-d22d0dd",
   "logger": "com.wodgeworks.analysis.RunTimer",
-  "elapsedMs": "73",
+  "elapsedMs": 73,
   "run": "a6f72c37-7e2f-4d69-a73f-7f493cb04d1d",
   "context": "DefaultDispatcher-worker-3"
 }
 ```
+
+## From file-based configuration
+
+You can specify base context items in [JSON](../configuration/json)
+or [HOCON](../configuration/hocon) configuration files, for example:
+
+```json
+{
+  "baseContext": {
+    "appName": "analysis-service",
+    "buildNumber": "${BUILD_NUMBER}"
+  }
+}
+```
+
+that reads the value of BUILD_NUMBER from the runtime environment.
