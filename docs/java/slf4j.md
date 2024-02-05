@@ -59,7 +59,7 @@ In this example, the log event contains the message with `{}` replaced by the va
 
 ### Message templates
 
-With the Klogging provider, you can use [message templates](../concepts/message-templates)
+With the Klogging provider, you can use [message templates](../context/message-templates.md)
 in SLF4J logging method calls and Klogging will emit structured log events. For example:
 
 ```java

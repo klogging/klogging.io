@@ -45,7 +45,7 @@ The simplest pattern is to send a string, for example:
 
 ### Message template
 
-[Message templates](../concepts/message-templates) provide a convenient way to both create meaningful
+[Message templates](../context/message-templates.md) provide a convenient way to both create meaningful
 messages and to create structured log events:
 
 ```kotlin
@@ -65,6 +65,39 @@ For example, if `userId` has the value `wonti321` then:
 The log event displayed in Splunk may look like this:
 
 ![Example of structured event message in Splunk](/img/log-info-userId-splunk.png)
+
+### Immediate context items
+
+You can specify a map of items to add to the context of a single log event.
+
+:::info
+Immediate context items are useful with `NoCoLogger` instances, where there is no coroutine
+context available.
+:::
+
+A simple example:
+
+```kotlin
+logger.info("Retrieved values from services", mapOf(
+    "serviceOneCount" to serviceOneResult.count,
+    "serviceTwoCount" to serviceTwoResult.count,
+)
+```
+
+The resulting log event may look like something like this:
+
+```json
+{
+  "@t": "2024-02-05T07:45:47.837117Z",
+  "@l": "INFO",
+  "@m": "Retrieved values from services",
+  "host": "589ef8fa",
+  "logger": "com.example.ServiceCombiner",
+  "context": "main",
+  "serviceOneCount": 9,
+  "serviceTwoCount": 17
+}
+```
 
 ### Exception
 
