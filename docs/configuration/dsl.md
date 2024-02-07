@@ -231,9 +231,9 @@ Klogging also supports logging directly to a Splunk [HTTP Event Collector
 - `checkCertificate` indicates whether Klogging should check the TLS certificate used by the
   Splunk server (string: default `"true"`).
 
-:::info
-The `sink` function is not complete and will be enhanced in the future.
-:::
+You can create a
+[custom renderer or sender](../concepts/rendering-and-sending#custom-rendering-and-sending)
+and use it in a sink definition.
 
 ### `logging`
 

@@ -46,3 +46,57 @@ public fun senderFrom(renderer: RenderString, sender: SendString): EventSender =
     }
 }
 ```
+
+## Custom rendering and sending
+
+If you need rendering or sending not available using
+[built-in renderers](../configuration/built-ins), you can implement a custom renderer or sender.
+An example renderer is:
+
+```kotlin
+object MessageOnly : RenderString {
+    override operator fun invoke(event: LogEvent) = event.message
+}
+```
+
+In [DSL configuration](../configuration/dsl) you can specify it with:
+
+```kotlin
+loggingConfiguration {
+    sink("messages", MessageOnly, STDOUT)
+    // etc.
+}
+```
+
+An example `EventSender` might be:
+
+```kotlin
+package mjs.example
+
+// imports here
+
+class ConsoleSender : EventSender {
+    override fun invoke(batch: List<LogEvent>) {
+        batch.forEach { logEvent ->
+            if (logEvent.level > Level.INFO) {
+                STDERR(RENDER_ANSI(logEvent))
+            } else {
+                STDOUT(RENDER_ANSI(logEvent))
+            }
+        }
+    }
+}
+```
+
+In [HOCON configuration](../configuration/hocon) you can specify it with:
+
+```hocon
+{
+  sinks = {
+    console = {
+      eventSender = "mjs.example.ConsoleSender"
+    }
+  }
+  // etc.
+}
+```

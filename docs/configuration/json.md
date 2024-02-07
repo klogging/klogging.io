@@ -103,9 +103,9 @@ you have more than one, `splunkServer` takes precedence over `seqServer`, which 
 precedence over `sendTo`.
 :::
 
-:::info
-The `sinks` object is evolving and there will be more options in the future.
-:::
+You can create a
+[custom renderer or sender](../concepts/rendering-and-sending#custom-rendering-and-sending)
+and include its fully-qualified class name in a sink definition.
 
 ### `logging`
 
