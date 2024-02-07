@@ -9,22 +9,22 @@ files. This example is exactly equivalent to the [first DSL example](dsl#a-simpl
 
 ```hocon
 {
-  sinks: {
-    stdout: {
-      renderWith: RENDER_SIMPLE,
-      sendTo: STDOUT
+  sinks = {
+    stdout = {
+      renderWith = RENDER_SIMPLE
+      sendTo = STDOUT
     },
-    seq: {
-      seqServer: "http://localhost:5341"
+    seq = {
+      seqServer = "http://localhost:5341"
     }
   },
-  logging: [
+  logging = [
     {
-      fromLoggerBase: com.example,
-      levelRanges: [
+      fromLoggerBase = com.example
+      levelRanges = [
         {
-          fromMinLevel: INFO,
-          toSinks: [stdout]
+          fromMinLevel = INFO
+          toSinks = [stdout]
         }
       ]
     }
