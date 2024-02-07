@@ -24,7 +24,9 @@ the [first DSL example](dsl#a-simple-example):
       "levelRanges": [
         {
           "fromMinLevel": "INFO",
-          "toSinks": ["stdout"]
+          "toSinks": [
+            "stdout"
+          ]
         }
       ]
     }
@@ -42,20 +44,24 @@ Klogging looks for configuration files as follows:
 
 If a configuration file is found it is read as JSON or HOCON.
 
+:::caution
+JSON file names must end with `.json` and HOCON files must end with `.conf`.
+:::
+
 ## Configuration object names
 
 ### `sinks`
 
 Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with keys:
 
-- `renderWith`: name of a [built-in renderer](built-ins#rendering). Current values are `RENDER_SIMPLE`,
-  `RENDER_ISO8601`, `RENDER_ANSI`, `RENDER_CLEF` and `RENDER_GELF`.
+- `renderWith`: name of a [built-in renderer](built-ins#rendering). Current values
+  are `RENDER_SIMPLE`, `RENDER_ISO8601`, `RENDER_ANSI`, `RENDER_CLEF` and `RENDER_GELF`.
 
 - `sendTo`: name of a [built-in sender](built-ins#sending). Current values are `STDOUT` and
   `STDERR`.
 
-- `seqServer`: URL of a [Seq server](https://datalust.co) where events are to be dispatched. By default,
-  the RENDER_CLEF renderer is used.
+- `seqServer`: URL of a [Seq server](https://datalust.co) where events are to be dispatched. By
+  default, the RENDER_CLEF renderer is used.
 
 - `apiKey`: a Seq API key. It is a secret that should be passed in via an environment variable, for
   example: `"apiKey": "${SEQ_API_KEY}"`
@@ -119,8 +125,8 @@ You should specify only one of these in a `logging` object. If more are specifie
 :::
 
 :::info
-If you specify no key, all loggers will match. This configuration is the equivalent of the root logger in
-Log4j or Logback.
+If you specify no key, all loggers will match. This configuration is the equivalent of the root
+logger in Log4j or Logback.
 :::
 
 ### `levelRanges`
@@ -141,10 +147,35 @@ Array of objects, each with keys:
 - `atLevel`: Name of the exact level at which log events will be emitted. Equivalent to
   the [atLevel](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
 
-- `toSinks`: Array of sink names where events will be sent. If it does not match a key of the `sinks` object, a
-  warning is written to the console and the configuration is ignored.
+- `toSinks`: Array of sink names where events will be sent. If it does not match a key of
+  the `sinks` object, a  warning is written to the console and the configuration is ignored.
 
 :::caution
-You must specify at least one `levelRange` object with at least one matching sink name or no logs will be
-emitted.
+You must specify at least one `levelRange` object with at least one matching sink name or no logs
+will be emitted.
 :::
+
+### Other options
+
+```json
+{
+  "kloggingMinLogLevel": "DEBUG",
+  "minDirectLogLevel": "INFO",
+  "baseContext": {
+    "appName": "analysis-service",
+    "buildNumber": "${BUILD_NUMBER}"
+  }
+}
+```
+
+#### `kloggingMinLogLevel`
+
+Set the minimum level of the [Klogging internal logger](../internals/internal-logger).
+
+#### `minDirectLogLevel`
+
+Set the minimum level for [sending log events directly to sinks](../concepts/direct-logging).
+
+#### `baseContext`
+
+Specify [context items to add to every log event](../context/base-context).
