@@ -26,15 +26,15 @@ loggingConfiguration {
 
 This configuration:
 
-- First declares a [sink](../concepts/sinks) called `stdout` that [renders](../concepts/rendering)
-  each
+- First declares a [sink](../concepts/sinks) called `stdout` that
+  [renders](../concepts/rendering-and-sending#rendering) each
   [log event](../concepts/log-events) into a [simple string format](built-ins) and
-  [sends](../concepts/sending) it to the standard output stream. Sinks need to be
-  configured first, before they can be used.
+  [sends](../concepts/rendering-and-sending#sending) it to the standard output stream.
+  Sinks need to be configured first, before they can be used.
 
 - Next declares a logging configuration that applies to loggers with names starting
   with `com.example`. In this configuration, all log events at [severity level](../concepts/levels)
-  `INFO` or greater are [sent](../concepts/sending) to the `stdout` sink.
+  `INFO` or greater are [sent](../concepts/rendering-and-sending#sending) to the `stdout` sink.
 
 :::note
 The `logging` section must follow the `sink` declarations.
@@ -163,8 +163,8 @@ loggingConfiguration {
 ```
 
 One scenario for appending a configuration is where the code defines a
-custom [renderer](../concepts/rendering)
-or [sender](../concepts/sending).
+custom [renderer](../concepts/rendering-and-sending#rendering)
+or [sender](../concepts/rendering-and-sending#sending).
 
 ```kotlin
 import com.example.customRenderer
@@ -176,8 +176,9 @@ loggingConfiguration(append = true) {
 
 ### `sink`
 
-This function configures a named sink with a [renderer](../concepts/rendering) and a
-[sender](../concepts/sending).
+This function configures a named sink with a
+[renderer](../concepts/rendering-and-sending#rendering) and a
+[sender](../concepts/rendering-and-sending#sending).
 
 This example configures two sinks:
 

@@ -1,12 +1,12 @@
 ---
-sidebar_position: 70
+sidebar_position: 30
 ---
 
 # Sinks
 
 Sinks are destinations for log events. Klogging configuration names sinks
-as having a [renderer](rendering) to `String` and [sender](sending)
-those strings to a destination.
+as having a [renderer](rendering-and-sending#rendering) to `String` and
+[sender](rendering-and-sending#sending) those strings to a destination.
 
 Example destinations are:
 
@@ -16,4 +16,3 @@ Example destinations are:
 - [Graylog log aggregator](https://www.graylog.org/)
 - [Logstash](https://www.elastic.co/logstash/) as part of the [ELK stack](https://www.elastic.co/what-is/elk-stack)
 - [Splunk](https://www.splunk.com)
-- [Syslog](https://en.wikipedia.org/wiki/Syslog)
