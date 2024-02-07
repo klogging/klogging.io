@@ -11,8 +11,13 @@ variables](../internals/environment-variables.md).
 
 ## How Klogging loads configuration
 
-Klogging does not load the initial configuration until it is needed, when a logger is first
-declared.
+Klogging first searches for file-based configuration, when it is first needed. The patterns are:
+
+| Source       | Configuration                                                                                                                                                      |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| File only    | Read from file when the first logger is declared.                                                                                                                  |
+| DSL only     | Set when the DSL code is executed.                                                                                                                                 |
+| File and DSL | Read from file immediately before the DSL code is read. DSL configuration replaces file configuration unless it begins with `loggingConfiguration(append = true)`. |
 
 ## How Klogging finds configuration files
 
@@ -24,5 +29,4 @@ Klogging follows these steps for finding configuration files:
    for `klogging.json` and load the contents if found; otherwise for `klogging.conf` and load the
    contents if found.
 
-Once a file has been found, attempt to interpret it as JSON
-or [HOCON](https://github.com/lightbend/config/blob/main/HOCON.md).
+Once a JSON or HOCON file has been found, it is read.

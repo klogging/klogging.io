@@ -32,6 +32,11 @@ files. This example is exactly equivalent to the [first DSL example](dsl#a-simpl
 }
 ```
 
+:::caution
+Klogging uses the KotlinX serialization library for HOCON, which has limited capability.
+In future it will support more HOCON features.
+:::
+
 ## Configuration object names
 
 Names are [exactly the same as for JSON](json#configuration-object-names).
