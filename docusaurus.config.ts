@@ -1,21 +1,47 @@
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
 const url = process.env["SITE_URL"] || "https://klogging.io";
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const config: Config = {
+  title: 'Klogging',
+  tagline: 'Easy and powerful logging from Kotlin with coroutine support',
+  favicon: 'img/favicon.ico',
 
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
-  title: "Klogging",
-  tagline: "Easy and powerful logging from Kotlin with coroutine support",
   url: url,
-  baseUrl: "/",
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
-  organizationName: "klogging",
-  projectName: "klogging.io",
-  trailingSlash: false,
+  baseUrl: '/',
+
+  organizationName: 'klogging', // Usually your GitHub org/user name.
+  projectName: 'klogging.io', // Usually your repo name.
+
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.ts',
+        },
+        blog: {
+          showReadingTime: true,
+        },
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
+
   themeConfig: {
+    image: 'img/klogging.svg',
     navbar: {
       title: "Klogging",
       logo: {
@@ -91,30 +117,15 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Michael Strasser. Built with Docusaurus.`,
     },
     prism: {
-      additionalLanguages: ["kotlin", "java"],
-      theme: lightCodeTheme,
-      darkTheme: darkCodeTheme,
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
     },
     algolia: {
       appId: "J62BLWP5Z6",
       apiKey: "6b12ec4662942998a33bd7a3090dcfd3",
       indexName: "klogging",
     }
-  },
-  presets: [
-    [
-      "@docusaurus/preset-classic",
-      {
-        docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-        },
-        blog: {
-          showReadingTime: true,
-        },
-        theme: {
-          customCss: require.resolve("./src/css/custom.css"),
-        },
-      },
-    ],
-  ],
+  } satisfies Preset.ThemeConfig,
 };
+
+export default config;
