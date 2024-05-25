@@ -7,7 +7,7 @@ either:
 - using from a [JSON](json.md) or [HOCON](hocon.md) configuration file.
 
 You can also override some configuration by setting [Environment
-variables](../internals/environment-variables.md).
+variables](../internals/environment-variables).
 
 ## How Klogging loads configuration
 
