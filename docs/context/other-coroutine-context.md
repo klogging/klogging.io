@@ -7,22 +7,34 @@ sidebar_position: 40
 Klogging can include information from other coroutine context elements.
 
 As an example, if your application is using [Project Reactor](https://projectreactor.io/), you can
-store information in a Reactor `Context` and wrap that in a coroutine `ReactorContext`.
-
-Configure Klogging to use all the values from the Reactor context in log events (`EventItems` is a
-convenient type alias for `Map<String, Any?>`):
+store information in a Reactor context and wrap that in a coroutine `ReactorContext`. This example
+Spring configuration copies selected items from `ReactorContext` into the Klogging context,
+so they are included in log events:
 
 ```kotlin
-import io.klogging.config.Context
+package com.example.config
+
+import io.klogging.context.Context
 import io.klogging.events.EventItems
 import kotlinx.coroutines.reactor.ReactorContext
+import org.springframework.context.annotation.Configuration
 
-val reactorExtractor: (ReactorContext) -> EventItems = { ctx ->
-    // TBC
+const val correlationKey = "correlationId"
+const val tracingKey = "tracingId"
+const val spanKey = "spanId"
+
+@Configuration
+class CopyReactorToKloggingContext {
+    init {
+        val copyContextItems: (ReactorContext) -> EventItems = { reactorContext ->
+            buildMap {
+                listOf(correlationKey, tracingKey, spanKey).forEach { key ->
+                    if (reactorContext.context.hasKey(key))
+                        put(key, reactorContext.context[key])
+                }
+            }
+        }
+        Context.addContextItemExtractor(ReactorContext, copyContextItems)
+    }
 }
-
-Context.addContextItemExtractor(ReactorContext, reactorExtractor)
 ```
-
-Any log events emitted within the scope of the Reactor context will include items returned by the
-`reactorExtractor()` function from that context.
