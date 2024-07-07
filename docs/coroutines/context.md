@@ -27,7 +27,7 @@ contain a field called `runId` with the value of `input.runId` for that particul
 
 Coroutine context information is kept for the duration of the current coroutine scope
 and is automatically removed at the end of that scope. Context information is also
-automatically moved into child scopes as required.
+automatically copied into child scopes as required.
 
 This is easier to use and more flexible than Mapped Diagnostic Context (MDC) in Logback
 and ThreadContext in Log4J. Those contexts require callers to remove items when
