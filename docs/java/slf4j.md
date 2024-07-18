@@ -25,7 +25,7 @@ Klogging supports SLF4J versions 2.x as used by Spring Boot 3 and later.
 Include this dependency in your Gradle build file:
 
 ```kotlin
-    implementation("io.klogging:slf4j-klogging:0.6.0")
+    implementation("io.klogging:slf4j-klogging:0.6.1")
 ```
 
 In Maven:
@@ -35,7 +35,7 @@ In Maven:
   <dependency>
     <groupId>io.klogging</groupId>
     <artifactId>slf4j-klogging</artifactId>
-    <version>0.6.0</version>
+    <version>0.6.1</version>
   </dependency>
 </dependencies>
 ```
