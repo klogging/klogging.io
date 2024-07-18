@@ -38,6 +38,7 @@ class MainService(processState: String) {
         logger.info("start process()")
         val subprocessState = doStuff()
         val subService = SubService(subprocessState, logger)
+        subService.process()
     }
 }
 
