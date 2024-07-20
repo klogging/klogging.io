@@ -20,7 +20,7 @@ The goals of Klogging are to:
 
 - Provide a familiar logging experience for Java and C# developers.
 - Create structured log events by default.
-- Use [message templates](context/message-templates.md) for simple logging of both text and data.
-- Use Kotlin coroutines for carrying [scope context information](coroutines/context.md) to include
-  in log events and for [asynchronous dispatching](coroutines/async.md) of events.
+- Use [message templates](context/message-templates) for simple logging of both text and data.
+- Use Kotlin coroutines for carrying [scope context information](coroutines/context) to include
+  in log events and for [asynchronous dispatching](coroutines/async) of events.
 - Finest possible resolution of timestamps, down to nanosecond if available.

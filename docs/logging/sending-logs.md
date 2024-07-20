@@ -45,7 +45,7 @@ The simplest pattern is to send a string, for example:
 
 ### Message template
 
-[Message templates](../context/message-templates.md) provide a convenient way to both create meaningful
+[Message templates](../context/message-templates) provide a convenient way to both create meaningful
 messages and to create structured log events:
 
 ```kotlin

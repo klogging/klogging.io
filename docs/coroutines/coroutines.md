@@ -7,5 +7,5 @@ sidebar_position: 10
 [Kotlin coroutines](https://kotlinlang.org/docs/coroutines-guide.html) provide two blessings to
 Klogging.
 
-- [Contextual event items](context.md)
-- [Asynchronous handling of log events](async.md)
+- [Contextual event items](context)
+- [Asynchronous handling of log events](async)

@@ -25,7 +25,7 @@ dependencies {
 ```
 
 Add `src/main/resources/klogging.json` configured as described
-in [Configuration with JSON](../configuration/json.md), for example:
+in [Configuration with JSON](../configuration/json), for example:
 
 ```json
 {
