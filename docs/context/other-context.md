@@ -15,7 +15,7 @@ public typealias ItemExtractor = () -> EventItems
 You can register an `ItemExtractor` to be called as each log event is assembled before it is
 emitted using `Context.addItemExtractor` function.
 
-Klogging’s [SLF4J provider](../java/slf4j) uses an `ItemExtractor` to include any MDC entries into
+Klogging’s [SLF4J provider](../java/slf4j.md) uses an `ItemExtractor` to include any MDC entries into
 log event context items:
 
 ```kotlin

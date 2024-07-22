@@ -20,7 +20,7 @@ console. Examples are:
 ```
 
 - The timestamp is in the server’s local time zone.
-- If there are `items` as part of the [log event](../concepts/log-events), the keys and values are printed at the end of
+- If there are `items` as part of the [log event](../concepts/log-events.md), the keys and values are printed at the end of
   the line in curly braces.
 - If there is a stack trace as part of the log event, it is printed starting on the next line.
 
@@ -36,7 +36,7 @@ timestamps in ISO8601 format. Examples are:
 ```
 
 - The timestamp is an ISO8601 timestamp in UTC.
-- If there are `items` as part of the [log event](../concepts/log-events), the keys and values are printed at the end of
+- If there are `items` as part of the [log event](../concepts/log-events.md), the keys and values are printed at the end of
   the line in curly braces.
 - If there is a stack trace as part of the log event, it is printed starting on the next line.
 

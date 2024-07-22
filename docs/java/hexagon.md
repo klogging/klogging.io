@@ -13,7 +13,7 @@ Klogging supports Hexagon toolkit versions 3.4.3 to 3.4.7, which require JVM 17.
 
 Later versions of Hexagon toolkit use JDK Platform Logging and do not require this adapter.
 To use Klogging with these versions, use the
-[JDK Platform Logging implementation](jdk-platform-logging) instead.
+[JDK Platform Logging implementation](jdk-platform-logging.md) instead.
 :::
 
 ## Specify dependency
@@ -61,7 +61,7 @@ fun main() {
 
 ## Configure Klogging
 
-[Configure Klogging](../configuration) either using the configuration DSL or a
+[Configure Klogging](../configuration/configuration.md) either using the configuration DSL or a
 configuration file in the application classpath. Here is a simple `klogging.json` example:
 
 ```json

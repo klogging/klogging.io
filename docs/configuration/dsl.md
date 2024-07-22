@@ -26,15 +26,15 @@ loggingConfiguration {
 
 This configuration:
 
-- First declares a [sink](../concepts/sinks) called `stdout` that
-  [renders](../concepts/rendering-and-sending#rendering) each
-  [log event](../concepts/log-events) into a [simple string format](built-ins) and
-  [sends](../concepts/rendering-and-sending#sending) it to the standard output stream.
+- First declares a [sink](../concepts/sinks.md) called `stdout` that
+  [renders](../concepts/rendering-and-sending.md#rendering) each
+  [log event](../concepts/log-events.md) into a [simple string format](built-ins.md) and
+  [sends](../concepts/rendering-and-sending.md#sending) it to the standard output stream.
   Sinks need to be configured first, before they can be used.
 
 - Next declares a logging configuration that applies to loggers with names starting
-  with `com.example`. In this configuration, all log events at [severity level](../concepts/levels)
-  `INFO` or greater are [sent](../concepts/rendering-and-sending#sending) to the `stdout` sink.
+  with `com.example`. In this configuration, all log events at [severity level](../concepts/levels.md)
+  `INFO` or greater are [sent](../concepts/rendering-and-sending.md#sending) to the `stdout` sink.
 
 :::note
 The `logging` section must follow the `sink` declarations.
@@ -163,8 +163,8 @@ loggingConfiguration {
 ```
 
 One scenario for appending a configuration is where the code defines a
-custom [renderer](../concepts/rendering-and-sending#rendering)
-or [sender](../concepts/rendering-and-sending#sending).
+custom [renderer](../concepts/rendering-and-sending.md#rendering)
+or [sender](../concepts/rendering-and-sending.md#sending).
 
 ```kotlin
 import com.example.customRenderer
@@ -177,8 +177,8 @@ loggingConfiguration(append = true) {
 ### `sink`
 
 This function configures a named sink with a
-[renderer](../concepts/rendering-and-sending#rendering) and a
-[sender](../concepts/rendering-and-sending#sending).
+[renderer](../concepts/rendering-and-sending.md#rendering) and a
+[sender](../concepts/rendering-and-sending.md#sending).
 
 This example configures two sinks:
 
@@ -232,7 +232,7 @@ Klogging also supports logging directly to a Splunk [HTTP Event Collector
   Splunk server (string: default `"true"`).
 
 You can create a
-[custom renderer or sender](../concepts/rendering-and-sending#custom-rendering-and-sending)
+[custom renderer or sender](../concepts/rendering-and-sending.md#custom-rendering-and-sending)
 and use it in a sink definition.
 
 ### `logging`
@@ -333,16 +333,16 @@ This function specifies the minimum level at which log events are sent direct to
 instead of being sent asynchronously via coroutine channels.
 
 If not specified, the level is that set by the value of [environment
-variable](../internals/environment-variables) `KLOGGING_MIN_DIRECT_LOG_LEVEL`, which will override
+variable](../internals/environment-variables.md) `KLOGGING_MIN_DIRECT_LOG_LEVEL`, which will override
 the default value `WARN`.
 
-See [direct logging](../concepts/direct-logging) for details.
+See [direct logging](../concepts/direct-logging.md) for details.
 
 ### `kloggingMinLogLevel()`
 
-This function sets the minimum level used by the [internal logger](../internals/internal-logger)
+This function sets the minimum level used by the [internal logger](../internals/internal-logger.md)
 to decide whether to emit log messages.
 
 If not specified, the level is that set by the value of [environment
-variable](../internals/environment-variables) `KLOGGING_MIN_LOG_LEVEL`, which will override the
+variable](../internals/environment-variables.md) `KLOGGING_MIN_LOG_LEVEL`, which will override the
 default value `INFO`.

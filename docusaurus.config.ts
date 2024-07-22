@@ -11,6 +11,7 @@ const config: Config = {
 
   url: url,
   baseUrl: '/',
+  trailingSlash: true,
 
   organizationName: 'klogging', // Usually your GitHub org/user name.
   projectName: 'klogging.io', // Usually your repo name.

@@ -5,7 +5,7 @@ sidebar_position: 30
 # Configuration with HOCON
 
 Klogging can be configured from [HOCON](https://github.com/lightbend/config/blob/main/HOCON.md)
-files. This example is exactly equivalent to the [first DSL example](dsl#a-simple-example):
+files. This example is exactly equivalent to the [first DSL example](dsl.md#a-simple-example):
 
 ```hocon
 {
@@ -39,4 +39,4 @@ In future it will support more HOCON features.
 
 ## Configuration object names
 
-Names are [exactly the same as for JSON](json#configuration-object-names).
+Names are [exactly the same as for JSON](json.md#configuration-object-names).

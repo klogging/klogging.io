@@ -35,14 +35,14 @@ of Klogger.
 
 ## Configure Klogging
 
-To see logs in your console quickly, using the [configuration DSL](configuration/dsl):
+To see logs in your console quickly, using the [configuration DSL](configuration/dsl.md):
 
 ```kotlin
 loggingConfiguration { DEFAULT_CONSOLE() }
 ```
 
 Or place the file `klogging.json` in a directory on your application’s classpath to use
-[JSON configuration](configuration/json):
+[JSON configuration](configuration/json.md):
 
 ```json
 {
@@ -119,7 +119,7 @@ suspend fun main() = coroutineScope {
 }
 ```
 
-See [Direct logging](concepts/direct-logging) for more information.
+See [Direct logging](concepts/direct-logging.md) for more information.
 
 :::info
 Klogging is designed primarily for long-running services and applications.

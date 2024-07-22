@@ -45,7 +45,7 @@ The simplest pattern is to send a string, for example:
 
 ### Message template
 
-[Message templates](../context/message-templates) provide a convenient way to both create meaningful
+[Message templates](../context/message-templates.md) provide a convenient way to both create meaningful
 messages and to create structured log events:
 
 ```kotlin
@@ -117,7 +117,7 @@ The resulting log event will include any stack trace included in the exception.
 ### Minimum level check
 
 Every logger has a minimum level set by configuration, below which log events are not sent.
-See [Log levels and checking](../internals/level-checking) for more details.
+See [Log levels and checking](../internals/level-checking.md) for more details.
 
 Klogging provides functions to check minimum levels to call before calling a logging function
 if the values to be logged are expensive to obtain.

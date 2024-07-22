@@ -5,7 +5,7 @@
 # Configuration with JSON
 
 Klogging can be configured from JSON files. This example is exactly equivalent to
-the [first DSL example](dsl#a-simple-example):
+the [first DSL example](dsl.md#a-simple-example):
 
 ```json
 {
@@ -52,12 +52,12 @@ JSON file names must end with `.json` and HOCON files must end with `.conf`.
 
 ### `sinks`
 
-Equivalent to the [sinks](dsl#sink) DSL function. Object keyed by sink name with keys:
+Equivalent to the [sinks](dsl.md#sink) DSL function. Object keyed by sink name with keys:
 
-- `renderWith`: name of a [built-in renderer](built-ins#rendering). Current values
+- `renderWith`: name of a [built-in renderer](built-ins.md#rendering). Current values
   are `RENDER_SIMPLE`, `RENDER_ISO8601`, `RENDER_ANSI`, `RENDER_CLEF` and `RENDER_GELF`.
 
-- `sendTo`: name of a [built-in sender](built-ins#sending). Current values are `STDOUT` and
+- `sendTo`: name of a [built-in sender](built-ins.md#sending). Current values are `STDOUT` and
   `STDERR`.
 
 - `seqServer`: URL of a [Seq server](https://datalust.co) where events are to be dispatched. By
@@ -104,12 +104,12 @@ precedence over `sendTo`.
 :::
 
 You can create a
-[custom renderer or sender](../concepts/rendering-and-sending#custom-rendering-and-sending)
+[custom renderer or sender](../concepts/rendering-and-sending.md#custom-rendering-and-sending)
 and include its fully-qualified class name in a sink definition.
 
 ### `logging`
 
-Equivalent to the [logging](dsl#logging) DSL function. Array of objects, each with optional keys:
+Equivalent to the [logging](dsl.md#logging) DSL function. Array of objects, each with optional keys:
 
 - `fromLoggerBase`: base name to match logger names.
 
@@ -135,17 +135,17 @@ Array of objects, each with keys:
 
 - `fromMinLevel`: Name of the minimum level for log events to be emitted. For example, if the value
   is `INFO` then events at severity `INFO`, `ERROR` and `FATAL` will be emitted. Equivalent to
-  the [fromMinLevel](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
+  the [fromMinLevel](dsl.md#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
 
 - `toMaxLevel`: Name of the maximum level for log events to be emitted. For example, if the value
   is `INFO` then events at severity `TRACE`, `DEBUG` and `INFO` will be emitted. Equivalent to
-  the [toMaxLevel](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
+  the [toMaxLevel](dsl.md#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
 
 - You can combine `fromMinLevel` and `toMaxLevel` values to set an inclusive range of levels.
-  Equivalent to the [inLevelRange](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
+  Equivalent to the [inLevelRange](dsl.md#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
 
 - `atLevel`: Name of the exact level at which log events will be emitted. Equivalent to
-  the [atLevel](dsl#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
+  the [atLevel](dsl.md#fromminlevel-tomaxlevel-atlevel-and-inlevelrange) DSL function.
 
 - `toSinks`: Array of sink names where events will be sent. If it does not match a key of
   the `sinks` object, a  warning is written to the console and the configuration is ignored.
@@ -170,12 +170,12 @@ will be emitted.
 
 #### `kloggingMinLogLevel`
 
-Set the minimum level of the [Klogging internal logger](../internals/internal-logger).
+Set the minimum level of the [Klogging internal logger](../internals/internal-logger.md).
 
 #### `minDirectLogLevel`
 
-Set the minimum level for [sending log events directly to sinks](../concepts/direct-logging).
+Set the minimum level for [sending log events directly to sinks](../concepts/direct-logging.md).
 
 #### `baseContext`
 
-Specify [context items to add to every log event](../context/base-context).
+Specify [context items to add to every log event](../context/base-context.md).

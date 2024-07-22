@@ -25,7 +25,7 @@ the ‘global’ variable `kloggingMinLogLevel`.
 
 - The level is `INFO` by default.
 
-- It can be changed by the [environment variable](../internals/environment-variables)
+- It can be changed by the [environment variable](../internals/environment-variables.md)
   `KLOGGING_MIN_LOG_LEVEL`
 
 ## Logging output

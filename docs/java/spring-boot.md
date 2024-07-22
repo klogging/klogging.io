@@ -7,7 +7,7 @@ sidebar_position: 30
 Klogging works really well with Spring Boot, especially in Kotlin code.
 
 You can set Klogging as the logging framework of a Spring Boot application.
-The [Klogging spring boot starter](https://github.com/klogging/klogging-spring-boot-starter)
+The [Klogging spring boot starter](https://github.com/klogging/klogging/klogging-spring-boot-starter)
 makes it simple. See [Gradle setup](#gradle-setup) below for details.
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.klogging/klogging-spring-boot-starter.svg?label=maven%20central)](https://central.sonatype.com/search?smo=true&q=io.klogging%3Aklogging-spring-boot-starter)

@@ -13,7 +13,7 @@ to take logging away from the main threads of program execution as soon as possi
 
 Notes:
 
-- **Filter**: only construct and emit a log event if [specified by Klogger configuration](../internals/level-checking).
+- **Filter**: only construct and emit a log event if [specified by Klogger configuration](../internals/level-checking.md).
 
 - **Emit**: send a log event into the events channel (or direct).
 
@@ -26,14 +26,14 @@ Notes:
 
 - Log events are constructed as close as possible to the code they describe.
 
-- [Klogger](../loggers/defining-loggers) instances have `suspend` functions for emitting log events.
+- [Klogger](../loggers/defining-loggers.md) instances have `suspend` functions for emitting log events.
 
-- [NoCoLogger](../loggers/defining-loggers) instances do not have `suspend` functions, and launch coroutines
+- [NoCoLogger](../loggers/defining-loggers.md) instances do not have `suspend` functions, and launch coroutines
   to emit events into the events channel.
 
 - Each sink has its own channel and processes log events in the order it receives them.
 
-- **Direct**: dashed lines show how Klogging can [send log events directly to sinks](../concepts/direct-logging)
+- **Direct**: dashed lines show how Klogging can [send log events directly to sinks](../concepts/direct-logging.md)
   instead of asynchronously via coroutine channels.
 
 ## Log event batching
@@ -44,7 +44,7 @@ before being sent to sink destinations. Events are batched:
 - at least every 10 milliseconds; or
 - at most 100 events.
 
-These values are defaults and can be changed by setting [environment variables](../internals/environment-variables).
+These values are defaults and can be changed by setting [environment variables](../internals/environment-variables.md).
 
 ## Log event order
 

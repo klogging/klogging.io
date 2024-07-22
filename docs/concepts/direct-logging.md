@@ -12,8 +12,8 @@ program finishes. This can be a problem if the log events occur immediately befo
 crashes. Those events may contain valuable information about why the crash happened.
 
 By default, Klogging sends all events with level `WARN` and above (`ERROR` and `FATAL`) directly to
-sinks. The minimum level can be configured using the [configuration DSL](../configuration/dsl) or
-in [JSON files](../configuration/json).
+sinks. The minimum level can be configured using the [configuration DSL](../configuration/dsl.md) or
+in [JSON files](../configuration/json.md).
 
 In the DSL:
 
@@ -33,4 +33,4 @@ In JSON:
 ```
 
 The level can also be set using the [environment
-variable](../internals/environment-variables) `KLOGGING_MIN_DIRECT_LOG_LEVEL`.
+variable](../internals/environment-variables.md) `KLOGGING_MIN_DIRECT_LOG_LEVEL`.

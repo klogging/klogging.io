@@ -11,7 +11,7 @@ that maps API calls to a logging framework (e.g. Logback, Log4j).
 Many Java programs and frameworks, including [Spring](https://spring.io/), log using the
 SLF4J API.
 
-Klogging has an [SLF4J provider](https://github.com/klogging/slf4j-klogging)
+Klogging has an [SLF4J provider](https://github.com/klogging/klogging/slf4j-klogging)
 that allows existing programs using SLF4J to switch the framework to Klogging.
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.klogging/slf4j-klogging.svg?label=maven%20central)](https://search.maven.org/search?q=g:%22io.klogging%22%20AND%20a:%22slf4j-klogging%22)
@@ -59,7 +59,7 @@ In this example, the log event contains the message with `{}` replaced by the va
 
 ### Message templates
 
-With the Klogging provider, you can use [message templates](../context/message-templates)
+With the Klogging provider, you can use [message templates](../context/message-templates.md)
 in SLF4J logging method calls and Klogging will emit structured log events. For example:
 
 ```java

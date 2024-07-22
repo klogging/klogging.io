@@ -42,8 +42,8 @@ Log events include those values, for example:
 
 ## From file-based configuration
 
-You can specify base context items in [JSON](../configuration/json)
-or [HOCON](../configuration/hocon) configuration files, for example:
+You can specify base context items in [JSON](../configuration/json.md)
+or [HOCON](../configuration/hocon.md) configuration files, for example:
 
 ```json
 {

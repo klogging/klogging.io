@@ -4,7 +4,7 @@ sidebar_position: 50
 
 # Rendering and sending
 
-Log events are _rendered_ before being _sent_ to [sinks](sinks).
+Log events are _rendered_ before being _sent_ to [sinks](sinks.md).
 
 ## Rendering
 
@@ -50,7 +50,7 @@ public fun senderFrom(renderer: RenderString, sender: SendString): EventSender =
 ## Custom rendering and sending
 
 If you need rendering or sending not available using
-[built-in renderers](../configuration/built-ins), you can implement a custom renderer or sender.
+[built-in renderers](../configuration/built-ins.md), you can implement a custom renderer or sender.
 An example renderer is:
 
 ```kotlin
@@ -59,7 +59,7 @@ object MessageOnly : RenderString {
 }
 ```
 
-In [DSL configuration](../configuration/dsl) you can specify it with:
+In [DSL configuration](../configuration/dsl.md) you can specify it with:
 
 ```kotlin
 loggingConfiguration {
@@ -88,7 +88,7 @@ class ConsoleSender : EventSender {
 }
 ```
 
-In [HOCON configuration](../configuration/hocon) you can specify it with:
+In [HOCON configuration](../configuration/hocon.md) you can specify it with:
 
 ```hocon
 {

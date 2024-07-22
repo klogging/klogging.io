@@ -22,5 +22,5 @@ Important properties of an event are:
 | Items       | A map of useful information current at the time of the event.                          |
 
 Each event also has a unique ID that is printed by
-the [internal logger](../internals/internal-logger)
+the [internal logger](../internals/internal-logger.md)
 for diagnostic purposes.

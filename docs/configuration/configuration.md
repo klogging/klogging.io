@@ -3,11 +3,11 @@
 Klogging starts with no configuration and will not send any log events. You configure Klogging using
 either:
 
-- in code using the [Configuration domain-specific language](dsl)
-- using from a [JSON](json) or [HOCON](hocon) configuration file.
+- in code using the [Configuration domain-specific language](dsl.md)
+- using from a [JSON](json.md) or [HOCON](hocon.md) configuration file.
 
 You can also override some configuration by setting [Environment
-variables](../internals/environment-variables).
+variables](../internals/environment-variables.md).
 
 ## How Klogging loads configuration
 
@@ -23,7 +23,7 @@ Klogging first searches for file-based configuration, when it is first needed. T
 
 Klogging follows these steps for finding configuration files:
 
-1. If the [environment variable](../internals/environment-variables) `KLOGGING_CONFIG_PATH` is
+1. If the [environment variable](../internals/environment-variables.md) `KLOGGING_CONFIG_PATH` is
    set, look for a file at that absolute path. Load the contents if found.
 2. If the environment variable is not set or the specified file is not found, search the classpath:
    for `klogging.json` and load the contents if found; otherwise for `klogging.conf` and load the
