@@ -42,7 +42,7 @@ class MainService(processState: String) {
     }
 }
 
-class SubService(subprocessState: String, parentLogger: NoCoLogger) {
+class SubService(subprocessState: String, parentLogger: BaseLogger) {
     private val logger = noCoLogger<SubService>(parentLogger, "subprocessState" to subprocessState)
 
     fun process() {
