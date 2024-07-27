@@ -97,6 +97,22 @@ An example is:
 }
 ```
 
+### RENDER_STANDARD
+
+A `RenderString` instance that converts log events into a standard JSON format. An example is:
+
+```json
+{
+  "timestamp": "2024-07-27T11:18:58.810039Z",
+  "level": "INFO",
+  "host": "uKW4KVMT",
+  "logger": "com.splodge.mucker.service",
+  "id": "13e837ba-b962-44ca-8dc3-675b64dcef6a",
+  "context": "DefaultDispatcher-worker-17",
+  "message": "Authenticated ID: 13e837ba-b962-44ca-8dc3-675b64dcef6a"
+}
+```
+
 ## Sending
 
 ### STDOUT
