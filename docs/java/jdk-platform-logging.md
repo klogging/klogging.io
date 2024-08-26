@@ -24,7 +24,7 @@ Gradle:
 
 ```kotlin
 dependencies {
-    implementation("io.klogging:jdk-platform-klogging:0.7.1")
+    implementation("io.klogging:jdk-platform-klogging:0.7.2")
 }
 ```
 
@@ -35,7 +35,7 @@ Maven:
   <dependency>
     <groupId>io.klogging</groupId>
     <artifactId>jdk-platform-klogging</artifactId>
-    <version>0.7.1</version>
+    <version>0.7.2</version>
   </dependency>
 </dependencies>
 ```
