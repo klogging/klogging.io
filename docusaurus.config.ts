@@ -52,7 +52,7 @@ const config: Config = {
       items: [
         {
           type: "doc",
-          docId: "get-started",
+          docId: "get-started/get-started",
           position: "left",
           label: "Docs",
         },
@@ -76,7 +76,7 @@ const config: Config = {
           items: [
             {
               label: "Get started",
-              to: "/docs/get-started",
+              to: "/docs/get-started/get-started",
             },
             {
               label: "Klogging with Spring Boot",
