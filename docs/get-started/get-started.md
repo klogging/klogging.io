@@ -1,7 +1,3 @@
----
-sidebar_position: 10
----
-
 # Get started
 
 Get started with Klogging quickly here.
@@ -12,7 +8,7 @@ Gradle: in `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("io.klogging:klogging-jvm:0.7.3")
+    implementation("io.klogging:klogging-jvm:0.8.0")
 }
 ```
 
@@ -23,7 +19,7 @@ Maven: in `pom.xml`:
   <dependency>
     <groupId>io.klogging</groupId>
     <artifactId>klogging-jvm</artifactId>
-    <version>0.7.3</version>
+    <version>0.8.0</version>
   </dependency>
 </dependencies>
 ```
@@ -35,14 +31,14 @@ of Klogger.
 
 ## Configure Klogging
 
-To see logs in your console quickly, using the [configuration DSL](configuration/dsl.md):
+To see logs in your console quickly, using the [configuration DSL](../configuration/dsl.md):
 
 ```kotlin
 loggingConfiguration { DEFAULT_CONSOLE() }
 ```
 
 Or place the file `klogging.json` in a directory on your application’s classpath to use
-[JSON configuration](configuration/json.md):
+[JSON configuration](../configuration/json.md):
 
 ```json
 {
@@ -119,7 +115,7 @@ suspend fun main() = coroutineScope {
 }
 ```
 
-See [Direct logging](concepts/direct-logging.md) for more information.
+See [Direct logging](../concepts/direct-logging.md) for more information.
 
 :::info
 Klogging is designed primarily for long-running services and applications.
@@ -142,6 +138,6 @@ repositories {
 
 dependencies {
     // ...
-    implementation("io.klogging:klogging-jvm:0.8.0-SNAPSHOT")
+    implementation("io.klogging:klogging-jvm:0.9.0-SNAPSHOT")
 }
 ```
