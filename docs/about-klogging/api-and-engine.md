@@ -12,7 +12,7 @@ send them to one or more destinations. In that way it is like
 
 Klogging can cooperate with other logging frameworks, as the logging engine for:
 
-- [Simple Logging Facade for Java (SLF4J)](https://slf4j.org). See [SLF4J](../java/slf4j.md) for how
+- [Simple Logging Facade for Java (SLF4J)](https://slf4j.org). See [Using Klogging with SLF4J](../java/slf4j.md) for how
   to do that.
 - [Java Platform Logging API](https://openjdk.org/jeps/264). See
   [JDK Platform Logging](../java/jdk-platform-logging.md) for how to do that.

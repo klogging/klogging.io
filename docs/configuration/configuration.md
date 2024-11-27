@@ -9,6 +9,13 @@ either:
 You can also override some configuration by setting [Environment
 variables](../internals/environment-variables.md).
 
+## Configuration structure
+
+Klogging configuration has this structure:
+
+1. Declare one or more [sink](dsl.md#sink)s where log events are sent.
+2. Declare [logging](dsl.md#logging), to specify how log events are dispatched to sinks.
+
 ## How Klogging loads configuration
 
 Klogging first searches for file-based configuration, when it is first needed. The patterns are:

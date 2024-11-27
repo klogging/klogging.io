@@ -28,3 +28,23 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.render-grey {
+  color: gray;
+}
+
+.render-green {
+  color: green;
+}
+
+.render-yellow {
+  color: goldenrod;
+}
+
+.render-red {
+  color: darkred;
+}
+
+.render-bright-red {
+  color: red;
+}

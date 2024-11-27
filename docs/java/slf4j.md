@@ -2,7 +2,7 @@
 sidebar_position: 20
 ---
 
-# Using SLF4J
+# Using Klogging with SLF4J
 
 The [Simple Logging Façade for Java (SLF4J)](http://www.slf4j.org/) library is a widely-used
 library for Java logging. It has two parts: a standard API that Java programs call; and a provider
