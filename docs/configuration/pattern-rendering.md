@@ -29,16 +29,18 @@ Here is a [JSON configuration](json.md) partial example:
       "renderPattern": "%t{LOCAL_TIME} %-5v{COLOUR} [%-10c] - %30l - %m - %i%s",
       "sendTo": "STDOUT"
     }
-  },
+  }
   // etc.
 }
 ```
 
 ## Pattern language
 
-Patterns contain fixed text with tokens representing log event fields with optional size
-specification. Some tokens can be followed by a format specifier. Examples are `%t`, `%-10l`
-and `%-5v{COLOUR}`.
+Patterns contain:
+
+- Fixed text that is included in every output.
+- Tokens representing log event fields with optional size specification. Some tokens can be followed by a format
+  specifier. Examples are `%t`, `%-10l` and `%-5v{COLOUR}`.
 
 ### Tokens
 
@@ -46,7 +48,7 @@ The pattern language includes the following fields, each specified using `%` and
 
 | Token | [Field](../concepts/log-events.md) | Notes                                                                                                             |
 |:-----:|------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| `%t`  | Timestamp                          | Format is ISO8601, e.g. `2024-11-25T05:52:15.286632Z`.                                                            |
+| `%t`  | Timestamp                          | Default format is ISO8601, e.g. `2024-11-25T05:52:15.286632Z`.                                                    |
 | `%h`  | Host                               |                                                                                                                   |
 | `%l`  | Logger name                        |                                                                                                                   |
 | `%c`  | Context                            |                                                                                                                   |
@@ -58,14 +60,23 @@ The pattern language includes the following fields, each specified using `%` and
 
 ### Size specification
 
-A size specification is used to fit the field value into a fixed width, either left-or right
-aligned.
+A size specification is put between `%` and the token letter. It is used to fit the field value into a fixed width,
+either left-or right aligned.
 
-| Size     | Effect                                                                                                                                                                                                                                                     |
-|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Zero     | Show the field value full width, the same as omitting the size specification.                                                                                                                                                                              |
-| Positive | If the field value is longer than the size, maybe shorten it (see below) and show the left-most characters.<br/>If the value is shorter, left-align it in the width specified by the size.<br/>For stack traces, sets the maximum number of lines to show. |
-| Negative | If the field value is longer than the size, maybe shorten it (see below) and show the left-most characters.<br/>If the value is shorter, right-align it in the width specified by the size.                                                                |
+**Zero**
+
+- Show the field value full width, the same as omitting the size specification.
+
+**Positive**
+
+- If the field value is longer than the size, maybe shorten it (see below) and show the left-most characters.
+- If the value is shorter, left-align it in the width specified by the size.
+- For stack traces, sets the maximum number of lines to show.
+
+**Negative**
+
+- If the field value is longer than the size, maybe shorten it (see below) and show the left-most characters.
+- If the value is shorter, right-align it in the width specified by the size.
 
 Notes:
 
@@ -87,10 +98,11 @@ The `%t` and `%v` tokens can take a format specifier.
 
 | Format                          | Effect                                                                                                      |
 |---------------------------------|-------------------------------------------------------------------------------------------------------------|
-| `%t{LOCAL_TIME}`                | Output only the time component of the event timestamp in the local timezone.                                |
+| `%t{LOCAL_TIME}`                | Output only the time component of the event timestamp in the local timezone, instead of ISO8601 timestamp.  |
 | `%v{COLOUR}` or<br/>`%v{COLOR}` | Output log levels with a different colour for each level, as for [`RENDER_ANSI`](built-ins.md#render_ansi). |
 
 Level colours are (approximately):
+
 - <span className="render-grey">TRACE</span>
 - DEBUG
 - <span className="render-green">INFO</span>
