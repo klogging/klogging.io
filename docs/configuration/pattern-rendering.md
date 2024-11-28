@@ -20,7 +20,7 @@ You can specify a pattern using the [configuration DSL](dsl.md), for example:
   // etc.
 ```
 
-Here is a [JSON configuration](json.md) partial example:
+Here is a [JSON configuration](json.md) example:
 
 ```json
 {
