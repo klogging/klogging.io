@@ -12,7 +12,8 @@ Message templates are partially implemented so far. Not implemented are:
 
 - double braces (`{{`) to escape them
 - numeric property names (e.g. `{0}`)
-- `@` structure capturing or `$` stringification operators
 
 It is planned to implement more of the standard in the future.
 :::
+
+Example usages are shown in [Sending log events](../logging/sending-logs.md#message-template).

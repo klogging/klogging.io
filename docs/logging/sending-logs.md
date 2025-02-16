@@ -4,7 +4,8 @@ sidebar_position: 10
 
 # Sending log events
 
-Once you have a logger, you can call functions on it to send log events. The base function is `log()`:
+Once you have a logger, you can call functions on it to send log events. The base function is
+`log()`:
 
 ```kotlin
     logger.log(Level.INFO, "Application started")
@@ -45,8 +46,8 @@ The simplest pattern is to send a string, for example:
 
 ### Message template
 
-[Message templates](../context/message-templates.md) provide a convenient way to both create meaningful
-messages and to create structured log events:
+[Message templates](../context/message-templates.md) provide a convenient way to both create
+meaningful messages and to create structured log events:
 
 ```kotlin
     logger.info("User {userId} signed in", userId)
@@ -65,6 +66,43 @@ For example, if `userId` has the value `wonti321` then:
 The log event displayed in Splunk may look like this:
 
 ![Example of structured event message in Splunk](/img/log-info-userId-splunk.png)
+
+[JVM] Klogging supports the `@` destructuring operator that destructures objects into their
+components when sent to [Seq](https://datalust.co/seq). A simple example is:
+
+```kotlin
+data class User(val id: Long, val name: String)
+
+// Other code
+
+val user = User(61733972217, "Neville")
+logger.info("User {@user} signed in", user)
+```
+
+The event in Seq may look like this:
+
+![Example of destructured object message in Seq](/img/seq-destructuring-example.png)
+
+The exported JSON from Seq may look like this:
+
+```json
+{
+  "@t": "2025-02-16T11:23:34.6534440Z",
+  "@mt": "User {@user} signed in",
+  "@m": "User {\"id\":61733972217,\"name\":\"Neville\",\"$type\":\"User\"} signed in",
+  "@i": "bef02ae7",
+  "context": "main",
+  "host": "MikeBook.local",
+  "logger": "Destructuring",
+  "user": {
+    "$type": "User",
+    "id": 61733972217,
+    "name": "Neville"
+  }
+}
+```
+
+Nested objects are destructured as deep as they nest.
 
 ### Immediate context items
 
@@ -101,7 +139,8 @@ The resulting log event may look like something like this:
 
 ### Exception
 
-To log exception information, include the exception object as the first argument in the function call:
+To log exception information, include the exception object as the first argument in the function
+call:
 
 ```kotlin
     try {
