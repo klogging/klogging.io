@@ -68,7 +68,7 @@ The log event displayed in Splunk may look like this:
 ![Example of structured event message in Splunk](/img/log-info-userId-splunk.png)
 
 [JVM] Klogging supports the `@` destructuring operator that destructures objects into their
-components when sent to [Seq](https://datalust.co/seq). A simple example is:
+components when serialised as JSON for sending to Seq, ElasticSearch or Splunk. A simple example is:
 
 ```kotlin
 data class User(val id: Long, val name: String)
