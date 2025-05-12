@@ -12,7 +12,8 @@ generates a `src/main/resources/logback.xml` configuration file.
 
 ## Configuration
 
-The simplest way to configure Klogging is to replace the Logback dependency with that for Klogging:
+The simplest way to configure Klogging is to replace the SLF4J Logback dependency with that for
+Klogging:
 
 ```kotlin
 dependencies {
@@ -21,6 +22,24 @@ dependencies {
     implementation("io.klogging:slf4j-klogging:0.9.4")
 
     // Other dependencies
+}
+```
+
+Some Ktor modules include Logback transitively, so if you see warnings like this:
+
+```text
+SLF4J(W): Class path contains multiple SLF4J providers.
+SLF4J(W): Found provider [io.klogging.slf4j.KloggingServiceProvider@4d50efb8]
+SLF4J(W): Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@7e2d773b]
+SLF4J(W): See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J(I): Actual provider is of type [io.klogging.slf4j.KloggingServiceProvider@4d50efb8]
+```
+
+Add this to your `build.gradle.kts` to actively exclude all Logback dependencies:
+
+```kotlin
+configurations.all {
+    exclude("ch.qos.logback")
 }
 ```
 
