@@ -19,7 +19,7 @@ Klogging:
 dependencies {
     // Ktor engine and plugin dependencies
     // implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.klogging:slf4j-klogging:0.9.4")
+    implementation("io.klogging:slf4j-klogging:0.10.0")
 
     // Other dependencies
 }

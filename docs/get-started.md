@@ -12,7 +12,7 @@ Gradle: in `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("io.klogging:klogging-jvm:0.9.4")
+    implementation("io.klogging:klogging-jvm:0.10.0")
 }
 ```
 
@@ -23,7 +23,7 @@ Maven: in `pom.xml`:
   <dependency>
     <groupId>io.klogging</groupId>
     <artifactId>klogging-jvm</artifactId>
-    <version>0.9.4</version>
+    <version>0.10.0</version>
   </dependency>
 </dependencies>
 ```
@@ -136,7 +136,7 @@ If you want to use the latest snapshot builds, specify these in your `build.grad
 repositories {
     // ...
     maven {
-        url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        url = uri("https://central.sonatype.com/repository/maven-snapshots/")
     }
 }
 
@@ -145,3 +145,8 @@ dependencies {
     implementation("io.klogging:klogging-jvm:0.10.0-SNAPSHOT")
 }
 ```
+
+:::note
+The repository for snapshots changed in May 2025, when Klogging started being published via Maven
+Central Publishing Portal.
+:::
