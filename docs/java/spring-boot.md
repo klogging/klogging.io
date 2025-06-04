@@ -73,48 +73,23 @@ Klogging supports Spring Boot versions 3 and later.
 Use a Gradle configuration like this:
 
 ```kotlin
-dependencies {
-    // Exclude Logback from any Spring starters that include it.
-    implementation("org.springframework.boot:spring-boot-starter-actuator") {
-        exclude(group = "ch.qos.logback")
-    }
-    implementation("org.springframework.boot:spring-boot-starter-webflux") {
-        exclude(group = "ch.qos.logback")
-    }
-    implementation("io.klogging:klogging-spring-boot-starter:0.10.0")
-    // Other runtime dependencies.
+configurations.all {
+    // Exclude any other libraries from loading Logback.
+    exclude("ch.qos.logback")
+}
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude(group = "ch.qos.logback")
-    }
-    // Other test dependencies.
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("io.klogging:klogging-spring-boot-starter:0.10.1")
+
+    // Other dependencies.
 }
 ```
 
 Spring uses [SLF4J](https://www.slf4j.org/) for sending logs and
-bundles [Logback](http://logback.qos.ch/) as the default provider. The `exclude` functions shown
-here
-are needed to exclude Logback from Spring.
-
-:::note
-
-If your Spring Boot app fails to start with messages like:
-
-```
-> Task :bootRun FAILED
-SLF4J: Class path contains multiple SLF4J providers.
-```
-
-and
-
-```
-Exception in thread "main" java.lang.IllegalArgumentException: LoggerFactory is not a Logback LoggerContext but Logback is on the classpath.
-```
-
-you have Spring components that explicitly include Logback, where you need to exclude it, as shown
-above, including `spring-boot-starter-test`.
-
-:::
+bundles [Logback](http://logback.qos.ch/) as the default provider. The `exclude` function shown
+here is needed to exclude Logback from Spring.
 
 ## Maven setup
 
