@@ -38,7 +38,7 @@ of Klogger.
 To see logs in your console quickly, using the [configuration DSL](configuration/dsl.md):
 
 ```kotlin
-loggingConfiguration { DEFAULT_CONSOLE() }
+loggingConfiguration { CONSOLE_INFO() }
 ```
 
 Or place the file `klogging.json` in a directory on your application’s classpath to use
@@ -46,7 +46,7 @@ Or place the file `klogging.json` in a directory on your application’s classpa
 
 ```json
 {
-  "configName": "DEFAULT_CONSOLE"
+  "configName": "CONSOLE_INFO"
 }
 ```
 
@@ -86,7 +86,7 @@ expect to see. This example will not show the log message on the console:
 
 ```kotlin
 suspend fun main() = coroutineScope {
-    loggingConfiguration { DEFAULT_CONSOLE() }
+    loggingConfiguration { CONSOLE_INFO() }
     val logger = logger("main")
     logger.info("Hello, world!")
 }
@@ -98,7 +98,7 @@ for example:
 
 ```kotlin
 suspend fun main() = coroutineScope {
-    loggingConfiguration { DEFAULT_CONSOLE() }
+    loggingConfiguration { CONSOLE_INFO() }
     val logger = logger("main")
     logger.info("Hello, world!")
     delay(50)
@@ -111,7 +111,7 @@ via coroutine channels:
 ```kotlin
 suspend fun main() = coroutineScope {
     loggingConfiguration {
-        DEFAULT_CONSOLE()
+        CONSOLE_INFO()
         minDirectLogLevel(Level.INFO)
     }
     val logger = logger("main")

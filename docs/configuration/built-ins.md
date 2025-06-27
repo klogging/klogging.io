@@ -20,9 +20,11 @@ console. Examples are:
 ```
 
 - The timestamp is in the server’s local time zone.
-- If there are `items` as part of the [log event](../concepts/log-events.md), the keys and values are printed at the end of
-  the line in curly braces.
+- If there are `items` as part of the [log event](../concepts/log-events.md), the keys and values
+  are printed at the end of the line in curly braces.
 - If there is a stack trace as part of the log event, it is printed starting on the next line.
+
+Example usages are shown for [Configuration DSL](dsl.md), [JSON](json.md) and [HOCON](hocon.md).
 
 ### RENDER_ISO8601
 
@@ -36,21 +38,22 @@ timestamps in ISO8601 format. Examples are:
 ```
 
 - The timestamp is an ISO8601 timestamp in UTC.
-- If there are `items` as part of the [log event](../concepts/log-events.md), the keys and values are printed at the end of
-  the line in curly braces.
+- If there are `items` as part of the [log event](../concepts/log-events.md), the keys and values
+  are printed at the end of the line in curly braces.
 - If there is a stack trace as part of the log event, it is printed starting on the next line.
 
 ### RENDER_ANSI
 
-A `RenderString` instance that renders log events as string messages for a console like `RENDER_SIMPLE` but with
-logging levels with colour highlights, for example:
+A `RenderString` instance that renders log events as string messages for a console like
+`RENDER_SIMPLE` but with logging levels with colour highlights, for example:
 
 ![Example of RENDER_ANSI output](/img/render-ansi.png)
 
 - Only the time portion of the timestamp is shown.
 - Logging levels are colour-coded and right-aligned in a 5-character column.
 - Context information is right-aligned in a 20-character column in square brackets.
-- Logger names are right-aligned in a 20-character column. Package names are abbreviated if they do not fit in the space.
+- Logger names are right-aligned in a 20-character column. Package names are abbreviated if they do
+  not fit in the space.
 - Log event `items` are included in curly braces, if present.
 - Stack traces, if present, start on the next line.
 
@@ -117,20 +120,26 @@ A `RenderString` instance that converts log events into a standard JSON format. 
 
 ### STDOUT
 
-A `SendString` instance that prints strings to the standard output stream.
+A `SendString` instance that prints strings to the standard output stream. See [DSL](dsl.md),
+[JSON](json.md) and [HOCON](hocon.md) documentation for example usages.
 
 ### STDERR
 
-A `SendString` instance that prints strings to the standard error stream.
+A `SendString` instance that prints strings to the standard error stream, used like STDOUT.
 
-## Rendering and sending
+## Complete configurations
 
-### DEFAULT_CONSOLE
+These built-ins are designed to be used without further configuration. Each one uses the specifed
+renderer and sink and sends events from all loggers at level `INFO` and above.
 
-A sink configuration that renders using `RENDER_SIMPLE` and sends using `STDOUT` to a sink
-called `console`. It emits log events with severity `INFO` and greater.
+If you need to see `DEBUG` or `TRACE` events, or include specified loggers by name, you need to
+specify configuration explicitly.
 
-### ANSI_CONSOLE
+| Name               | Render with     | Send to  |
+|--------------------|-----------------|----------|
+| `CONSOLE_INFO`     | `RENDER_SIMPLE` | `STDOUT` |
+| `ANSI_INFO`        | `RENDER_ANSI`   | `STDOUT` |
+| `STDERR_INFO`      | `RENDER_SIMPLE` | `STDERR` |
+| `ANSI_STDERR_INFO` | `RENDER_ANSI`   | `STDERR` |
 
-A sink configuration that renders using `RENDER_ANSI` and sends using `STDOUT` to a sink
-called `console`. It emits log events with severity `INFO` and greater.
+Old names `DEFAULT_CONSOLE`, `DEFAULT_STDERR`, `ANSI_CONSOLE` and `ANSI_STDERR` are deprecated.
