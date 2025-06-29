@@ -132,9 +132,6 @@ A `SendString` instance that prints strings to the standard error stream, used l
 These built-ins are designed to be used without further configuration. Each one uses the specifed
 renderer and sink and sends events from all loggers at level `INFO` and above.
 
-If you need to see `DEBUG` or `TRACE` events, or include specified loggers by name, you need to
-specify configuration explicitly.
-
 | Name               | Render with     | Send to  |
 |--------------------|-----------------|----------|
 | `CONSOLE_INFO`     | `RENDER_SIMPLE` | `STDOUT` |
@@ -142,4 +139,31 @@ specify configuration explicitly.
 | `STDERR_INFO`      | `RENDER_SIMPLE` | `STDERR` |
 | `ANSI_STDERR_INFO` | `RENDER_ANSI`   | `STDERR` |
 
-Old names `DEFAULT_CONSOLE`, `DEFAULT_STDERR`, `ANSI_CONSOLE` and `ANSI_STDERR` are deprecated.
+:::info
+The old names `DEFAULT_CONSOLE`, `DEFAULT_STDERR`, `ANSI_CONSOLE` and `ANSI_STDERR` are deprecated.
+:::
+
+:::note
+If you need to see `DEBUG` or `TRACE` events, or include specified loggers by name, you need to
+specify sinks and loggers explicitly.
+:::
+
+Example use in the [configuration DSL](dsl.md) (note the use of `()` to invoke the configuration):
+
+```kotlin
+    loggingConfiguration { CONSOLE_INFO() }
+```
+
+In [JSON](json.md):
+
+```json
+{
+  "configName": "ANSI_INFO"
+}
+```
+
+In [HOCON](hocon.md):
+
+```hocon
+configName = CONSOLE_INFO
+```
