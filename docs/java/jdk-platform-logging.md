@@ -4,14 +4,16 @@ sidebar_position: 5
 
 # JDK Platform Logging
 
-From Java version 9, built-in logging execution classes are separate from classes used to create and
+From Java version 9, built-in logging execution classes are separate from those used to create and
 send logs. JDK Platform Logging (JPL) specifies
 [`java.lang.System.Logger`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/System.Logger.html)
 and
 [`java.lang.System.LoggerFinder`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/System.LoggerFinder.html)
 in the
 [`java.lang.System`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/System.html)
-class in the `java.base` module. The default implementations are in
+class in the `java.base` module.
+
+The default implementations are in
 [`java.util.logging`](https://docs.oracle.com/en/java/javase/21/docs/api/java.logging/java/util/logging/package-summary.html)
 (JUL) package in the `java.logging` module.
 
