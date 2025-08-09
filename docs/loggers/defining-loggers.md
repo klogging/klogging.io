@@ -64,9 +64,11 @@ For a single reference to a logger that is not looked up every time, define it i
 object of a class:
 
 ```kotlin
+import io.klogging.logger
+
 class VeryBusyService {
     companion object {
-        logger = logger<VeryBusyService>()
+        val logger = logger<VeryBusyService>()
     }
 }
 ```
