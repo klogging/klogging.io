@@ -81,7 +81,7 @@ configurations.all {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("io.klogging:klogging-spring-boot-starter:0.11.6")
+    implementation("io.klogging:klogging-spring-boot-starter:0.11.7")
 
     // Other dependencies.
 }

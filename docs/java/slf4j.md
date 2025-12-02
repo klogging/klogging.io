@@ -25,27 +25,28 @@ Klogging supports SLF4J versions 2.x as used by Spring Boot 3 and later.
 Include this dependency in your Gradle build file:
 
 ```kotlin
-    implementation("io.klogging:slf4j-klogging:0.11.6")
+    implementation("io.klogging:slf4j-klogging:0.11.7")
 ```
 
 In Maven:
 
 ```xml
+
 <dependencies>
   <dependency>
     <groupId>io.klogging</groupId>
     <artifactId>slf4j-klogging</artifactId>
-    <version>0.11.6</version>
+    <version>0.11.7</version>
   </dependency>
 </dependencies>
 ```
 
 ## Including values in messages
 
-There are two options for including values in messages: SLF4J formatting with placeholders or
+There are two options for including values in messages: SLF4J formatting with anchors or
 Klogging message templates.
 
-### SLF4J formatting with placeholders
+### SLF4J formatting with anchors
 
 All existing logging statements with SLF4J formatting will continue to work with Klogging,
 for example:
@@ -68,14 +69,14 @@ in SLF4J logging method calls and Klogging will emit structured log events. For 
 
 :::note
 IntelliJ IDEA will highlight message templates in SLF4J logging method calls because
-they are not the positional `{}` placeholders used by SLF4J.
+they are not the positional `{}` anchors used by SLF4J.
 
 ![IntelliJ highlight message for message template](../../static/img/slf4j-intellij-message.png)
 :::
 
 :::caution
-Klogging does not currently support messages containing both SLF4J placeholders and message
-template holes.
+Using both SLF4J formatting and message templates in the same log statement might result in
+unexpected behaviour.
 :::
 
 ### MDC
